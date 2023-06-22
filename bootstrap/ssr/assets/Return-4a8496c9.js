@@ -1,4 +1,4 @@
-import { T as TextContainer } from "./TextContainer-b1661c8f.js";
+import { T as TextContainer } from "./TextContainer-eade10fa.js";
 import { _ as _export_sfc, L as Layout } from "./Layout-0dd77213.js";
 import { resolveComponent, withCtx, createVNode, useSSRContext } from "vue";
 import { ssrRenderComponent } from "vue/server-renderer";
@@ -29,16 +29,14 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
       if (_push2) {
         _push2(ssrRenderComponent(_component_TextContainer, {
           title: _ctx.title,
-          paragraphs: _ctx.paragraphs,
-          image: _ctx.image
+          paragraphs: _ctx.paragraphs
         }, null, _parent2, _scopeId));
       } else {
         return [
           createVNode(_component_TextContainer, {
             title: _ctx.title,
-            paragraphs: _ctx.paragraphs,
-            image: _ctx.image
-          }, null, 8, ["title", "paragraphs", "image"])
+            paragraphs: _ctx.paragraphs
+          }, null, 8, ["title", "paragraphs"])
         ];
       }
     }),

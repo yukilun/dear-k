@@ -6,7 +6,7 @@ import { F as FeatureProducts } from "./FeatureProducts-aae37762.js";
 import "@inertiajs/vue3";
 import "aos";
 import "./ProductCard-2b8d9c9f.js";
-const Carousel_vue_vue_type_style_index_0_scoped_ec207d60_lang = "";
+const Carousel_vue_vue_type_style_index_0_scoped_80d1dee8_lang = "";
 register();
 const _sfc_main$1 = {
   name: "Carousel",
@@ -20,9 +20,9 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     "data-aos": "fade-right",
     "data-aos-once": "true",
     "data-aos-duration": "2500"
-  }, _attrs))} data-v-ec207d60><swiper-container navigation="true"${ssrRenderAttr("pagination", { clickable: true })} speed="500" loop="true" autoplay-delay="2000" autoplay-disable-on-interaction="false" data-v-ec207d60><!--[-->`);
+  }, _attrs))} data-v-80d1dee8><swiper-container navigation="true"${ssrRenderAttr("pagination", { clickable: true })} speed="500" loop="true" autoplay-delay="2000" autoplay-disable-on-interaction="false" data-v-80d1dee8><!--[-->`);
   ssrRenderList($props.banners, (banner) => {
-    _push(`<swiper-slide data-v-ec207d60><img${ssrRenderAttr("src", `/storage/${banner.banner_url}`)} class="d-block w-100" alt="..." data-v-ec207d60></swiper-slide>`);
+    _push(`<swiper-slide data-v-80d1dee8><img${ssrRenderAttr("src", `/storage/${banner.banner_horiz_url}`)} class="d-none d-sm-block" alt="..." data-v-80d1dee8><img${ssrRenderAttr("src", `/storage/${banner.banner_vert_url}`)} class="d-block d-sm-none" alt="..." data-v-80d1dee8></swiper-slide>`);
   });
   _push(`<!--]--></swiper-container></div>`);
 }
@@ -32,7 +32,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Carousel.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const Carousel = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-ec207d60"]]);
+const Carousel = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-80d1dee8"]]);
 const _sfc_main = {
   name: "Home",
   components: {

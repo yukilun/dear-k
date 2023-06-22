@@ -18,5 +18,8 @@ export default defineConfig({
             ssr: "resources/js/ssr.js",
             refresh: true,
         }),
-    ]
+    ],
+    ssr: {
+        noExternal: ["@fortawesome/fontawesome-svg-core", "@fortawesome/vue-fontawesome", "@fortawesome/free-solid-svg-icons", "@fortawesome/free-brands-svg-icons"]
+    }
 });

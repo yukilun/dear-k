@@ -1,6 +1,6 @@
 import { Link, useForm } from "@inertiajs/vue3";
-import { useSSRContext, resolveComponent, mergeProps, withCtx, createVNode, toDisplayString, resolveDirective, openBlock, createBlock, Fragment, renderList, withDirectives, createCommentVNode } from "vue";
-import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrInterpolate, ssrRenderList, ssrGetDirectiveProps } from "vue/server-renderer";
+import { useSSRContext, resolveComponent, mergeProps, withCtx, createVNode, toDisplayString, resolveDirective, openBlock, createBlock, Fragment, renderList, withDirectives, createCommentVNode, vShow } from "vue";
+import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrInterpolate, ssrRenderList, ssrGetDirectiveProps, ssrRenderStyle } from "vue/server-renderer";
 import { _ as _export_sfc, L as Layout } from "./Layout-0dd77213.js";
 import { Field, Form, configure } from "vee-validate";
 import * as yup from "yup";
@@ -143,7 +143,7 @@ const _sfc_main = {
       billing_postal_code: {
         unmasked: ""
       },
-      sameAddress: true,
+      sameAddress: null,
       form: null
     };
   },
@@ -153,29 +153,34 @@ const _sfc_main = {
       this.shippingProvince = this.provinces.find((province) => province.code == code);
     },
     setSameAddress() {
-      this.sameAddress = true;
-      const formValues = this.$refs.vform.getValues();
-      this.$refs.vform.setValues({
-        ...formValues,
-        billing_name: formValues.shipping_name,
-        billing_street_address: formValues.shipping_street_address,
-        billing_city: formValues.shipping_city,
-        billing_province_code: formValues.shipping_province_code,
-        billing_postal_code: formValues.shipping_postal_code,
-        billing_country: formValues.shipping_country
-      });
+      if (!this.sameAddress) {
+        this.sameAddress = true;
+        const formValues = this.$refs.vform.getValues();
+        this.$refs.vform.setValues({
+          ...formValues,
+          billing_name: formValues.shipping_name,
+          billing_street_address: formValues.shipping_street_address,
+          billing_city: formValues.shipping_city,
+          billing_province_code: formValues.shipping_province_code,
+          billing_postal_code: formValues.shipping_postal_code,
+          billing_country: formValues.shipping_country,
+          same_address: true
+        });
+      }
     },
     setDifferentAddress() {
-      this.sameAddress = false;
-      this.$refs.vform.setValues({
-        billing_name: "",
-        billing_phone: "",
-        billing_street_address: "",
-        billing_city: "",
-        billing_province_code: "",
-        billing_postal_code: "",
-        billing_country: "Canada"
-      });
+      if (this.sameAddress !== false) {
+        this.sameAddress = false;
+        this.$refs.vform.setValues({
+          billing_name: "",
+          billing_street_address: "",
+          billing_city: "",
+          billing_province_code: "",
+          billing_postal_code: "",
+          billing_country: "Canada",
+          same_address: false
+        });
+      }
     },
     handleSubmit(values) {
       var unmaskedValues = {
@@ -381,93 +386,88 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
               } else {
                 _push3(`<!---->`);
               }
-              if (!$data.sameAddress) {
-                _push3(`<!--[--><div class="form-floating mb-3"${_scopeId2}>`);
-                _push3(ssrRenderComponent(_component_Field, {
-                  type: "text",
-                  class: ["form-control", (errors.billing_name || ((_o = $data.form) == null ? void 0 : _o.billing_errors.name)) && "is-invalid"],
-                  name: "billing_name",
-                  id: "billing_name",
-                  placeholder: "Name"
-                }, null, _parent3, _scopeId2));
-                _push3(`<label for="billing_name" class="form-label"${_scopeId2}>Name</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_name || ((_p = $data.form) == null ? void 0 : _p.errors.billing_name))}</div></div><div class="form-floating mb-3"${_scopeId2}>`);
-                _push3(ssrRenderComponent(_component_Field, {
-                  type: "text",
-                  class: ["form-control", (errors.billing_street_address || ((_q = $data.form) == null ? void 0 : _q.errors.billing_street_address)) && "is-invalid"],
-                  name: "billing_street_address",
-                  id: "billing_street_address",
-                  placeholder: "Street Address",
-                  maxlength: "100"
-                }, null, _parent3, _scopeId2));
-                _push3(`<label for="billing_street_address" class="form-label"${_scopeId2}>Street Address</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_street_address || ((_r = $data.form) == null ? void 0 : _r.errors.billing_street_address))}</div></div><div class="row g-3 mb-3"${_scopeId2}><div class="col-lg-4"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
-                _push3(ssrRenderComponent(_component_Field, {
-                  type: "text",
-                  class: ["form-control", (errors.billing_city || ((_s = $data.form) == null ? void 0 : _s.errors.billing_city)) && "is-invalid"],
-                  name: "billing_city",
-                  id: "billing_city",
-                  placeholder: "City",
-                  max: "50"
-                }, null, _parent3, _scopeId2));
-                _push3(`<label for="billing_city" class="form-label"${_scopeId2}>City</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_city || ((_t = $data.form) == null ? void 0 : _t.errors.billing_city))}</div></div></div><div class="col-lg-4 h-100"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
-                _push3(ssrRenderComponent(_component_Field, {
-                  as: "select",
-                  name: "billing_province_code",
-                  id: "billing_province_code",
-                  class: ["form-select h-100", (errors.billing_province_code || ((_u = $data.form) == null ? void 0 : _u.errors.billing_province_code)) && "is-invalid"],
-                  onChange: $options.changeShippingProvince
-                }, {
-                  default: withCtx((_2, _push4, _parent4, _scopeId3) => {
-                    if (_push4) {
-                      _push4(`<option disabled${_scopeId3}></option><!--[-->`);
-                      ssrRenderList($props.provinces, (province) => {
-                        _push4(`<option${ssrRenderAttr("value", province.code)}${_scopeId3}>${ssrInterpolate(province.code)}</option>`);
-                      });
-                      _push4(`<!--]-->`);
-                    } else {
-                      return [
-                        createVNode("option", { disabled: "" }),
-                        (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, (province) => {
-                          return openBlock(), createBlock("option", {
-                            value: province.code
-                          }, toDisplayString(province.code), 9, ["value"]);
-                        }), 256))
-                      ];
-                    }
-                  }),
-                  _: 2
-                }, _parent3, _scopeId2));
-                _push3(`<label for="billing_province_code" class="form-label"${_scopeId2}>Province</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_province_code || ((_v = $data.form) == null ? void 0 : _v.errors.billing_province_code))}</div></div></div><div class="col-lg-4"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
-                _push3(ssrRenderComponent(_component_Field, mergeProps({
-                  type: "text",
-                  class: ["form-control", (errors.billing_postal_code || ((_w = $data.form) == null ? void 0 : _w.errors.billing_postal_code)) && "is-invalid"],
-                  name: "billing_postal_code",
-                  id: "billing_postal_code",
-                  placeholder: "Postal Code",
-                  "data-maska": "@#@ #@#"
-                }, ssrGetDirectiveProps(_ctx, _directive_maska, $data.billing_postal_code)), null, _parent3, _scopeId2));
-                _push3(`<label for="billing_postal_code" class="form-label"${_scopeId2}>Postal Code</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_postal_code || ((_x = $data.form) == null ? void 0 : _x.errors.billing_postal_code))}</div></div></div></div><div class="form-floating"${_scopeId2}>`);
-                _push3(ssrRenderComponent(_component_Field, {
-                  as: "select",
-                  name: "billing_country",
-                  id: "billing_country",
-                  class: ["form-select h-100", (errors.billing_country || ((_y = $data.form) == null ? void 0 : _y.errors.billing_country)) && "is-invalid"]
-                }, {
-                  default: withCtx((_2, _push4, _parent4, _scopeId3) => {
-                    if (_push4) {
-                      _push4(`<option selected${_scopeId3}>Canada</option>`);
-                    } else {
-                      return [
-                        createVNode("option", { selected: "" }, "Canada")
-                      ];
-                    }
-                  }),
-                  _: 2
-                }, _parent3, _scopeId2));
-                _push3(`<label for="billing_country" class="form-label"${_scopeId2}>Country</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_country || ((_z = $data.form) == null ? void 0 : _z.errors.billing_country))}</div></div><!--]-->`);
-              } else {
-                _push3(`<!---->`);
-              }
-              _push3(`<div class="d-grid d-md-block"${_scopeId2}><button type="submit" class="btn btn-primary btn-lg rounded-0 text-white mt-4 px-5"${_scopeId2}> Process to payment </button></div>`);
+              _push3(`<div style="${ssrRenderStyle($data.sameAddress === false ? null : { display: "none" })}"${_scopeId2}><div class="form-floating mb-3"${_scopeId2}>`);
+              _push3(ssrRenderComponent(_component_Field, {
+                type: "text",
+                class: ["form-control", (errors.billing_name || ((_o = $data.form) == null ? void 0 : _o.errors.billing_name)) && "is-invalid"],
+                name: "billing_name",
+                id: "billing_name",
+                placeholder: "Name"
+              }, null, _parent3, _scopeId2));
+              _push3(`<label for="billing_name" class="form-label"${_scopeId2}>Name</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_name || ((_p = $data.form) == null ? void 0 : _p.errors.billing_name))}</div></div><div class="form-floating mb-3"${_scopeId2}>`);
+              _push3(ssrRenderComponent(_component_Field, {
+                type: "text",
+                class: ["form-control", (errors.billing_street_address || ((_q = $data.form) == null ? void 0 : _q.errors.billing_street_address)) && "is-invalid"],
+                name: "billing_street_address",
+                id: "billing_street_address",
+                placeholder: "Street Address",
+                maxlength: "100"
+              }, null, _parent3, _scopeId2));
+              _push3(`<label for="billing_street_address" class="form-label"${_scopeId2}>Street Address</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_street_address || ((_r = $data.form) == null ? void 0 : _r.errors.billing_street_address))}</div></div><div class="row g-3 mb-3"${_scopeId2}><div class="col-lg-4"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
+              _push3(ssrRenderComponent(_component_Field, {
+                type: "text",
+                class: ["form-control", (errors.billing_city || ((_s = $data.form) == null ? void 0 : _s.errors.billing_city)) && "is-invalid"],
+                name: "billing_city",
+                id: "billing_city",
+                placeholder: "City",
+                max: "50"
+              }, null, _parent3, _scopeId2));
+              _push3(`<label for="billing_city" class="form-label"${_scopeId2}>City</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_city || ((_t = $data.form) == null ? void 0 : _t.errors.billing_city))}</div></div></div><div class="col-lg-4 h-100"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
+              _push3(ssrRenderComponent(_component_Field, {
+                as: "select",
+                name: "billing_province_code",
+                id: "billing_province_code",
+                class: ["form-select h-100", (errors.billing_province_code || ((_u = $data.form) == null ? void 0 : _u.errors.billing_province_code)) && "is-invalid"],
+                onChange: $options.changeShippingProvince
+              }, {
+                default: withCtx((_2, _push4, _parent4, _scopeId3) => {
+                  if (_push4) {
+                    _push4(`<option disabled${_scopeId3}></option><!--[-->`);
+                    ssrRenderList($props.provinces, (province) => {
+                      _push4(`<option${ssrRenderAttr("value", province.code)}${_scopeId3}>${ssrInterpolate(province.code)}</option>`);
+                    });
+                    _push4(`<!--]-->`);
+                  } else {
+                    return [
+                      createVNode("option", { disabled: "" }),
+                      (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, (province) => {
+                        return openBlock(), createBlock("option", {
+                          value: province.code
+                        }, toDisplayString(province.code), 9, ["value"]);
+                      }), 256))
+                    ];
+                  }
+                }),
+                _: 2
+              }, _parent3, _scopeId2));
+              _push3(`<label for="billing_province_code" class="form-label"${_scopeId2}>Province</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_province_code || ((_v = $data.form) == null ? void 0 : _v.errors.billing_province_code))}</div></div></div><div class="col-lg-4"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
+              _push3(ssrRenderComponent(_component_Field, mergeProps({
+                type: "text",
+                class: ["form-control", (errors.billing_postal_code || ((_w = $data.form) == null ? void 0 : _w.errors.billing_postal_code)) && "is-invalid"],
+                name: "billing_postal_code",
+                id: "billing_postal_code",
+                placeholder: "Postal Code",
+                "data-maska": "@#@ #@#"
+              }, ssrGetDirectiveProps(_ctx, _directive_maska, $data.billing_postal_code)), null, _parent3, _scopeId2));
+              _push3(`<label for="billing_postal_code" class="form-label"${_scopeId2}>Postal Code</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_postal_code || ((_x = $data.form) == null ? void 0 : _x.errors.billing_postal_code))}</div></div></div></div><div class="form-floating"${_scopeId2}>`);
+              _push3(ssrRenderComponent(_component_Field, {
+                as: "select",
+                name: "billing_country",
+                id: "billing_country",
+                class: ["form-select h-100", (errors.billing_country || ((_y = $data.form) == null ? void 0 : _y.errors.billing_country)) && "is-invalid"]
+              }, {
+                default: withCtx((_2, _push4, _parent4, _scopeId3) => {
+                  if (_push4) {
+                    _push4(`<option selected${_scopeId3}>Canada</option>`);
+                  } else {
+                    return [
+                      createVNode("option", { selected: "" }, "Canada")
+                    ];
+                  }
+                }),
+                _: 2
+              }, _parent3, _scopeId2));
+              _push3(`<label for="billing_country" class="form-label"${_scopeId2}>Country</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_country || ((_z = $data.form) == null ? void 0 : _z.errors.billing_country))}</div></div></div><div class="d-grid d-md-block"${_scopeId2}><button type="submit" class="btn btn-primary btn-lg rounded-0 text-white mt-4 px-5"${_scopeId2}> Process to payment </button></div>`);
             } else {
               return [
                 createVNode("p", { class: "fs-5 fw-semi-bold" }, "Shipping Details"),
@@ -636,11 +636,11 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                   key: 0,
                   class: "text-danger mb-3"
                 }, toDisplayString(errors.same_address), 1)) : createCommentVNode("", true),
-                !$data.sameAddress ? (openBlock(), createBlock(Fragment, { key: 1 }, [
+                withDirectives(createVNode("div", null, [
                   createVNode("div", { class: "form-floating mb-3" }, [
                     createVNode(_component_Field, {
                       type: "text",
-                      class: ["form-control", (errors.billing_name || ((_O = $data.form) == null ? void 0 : _O.billing_errors.name)) && "is-invalid"],
+                      class: ["form-control", (errors.billing_name || ((_O = $data.form) == null ? void 0 : _O.errors.billing_name)) && "is-invalid"],
                       name: "billing_name",
                       id: "billing_name",
                       placeholder: "Name"
@@ -748,7 +748,9 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                     }, "Country"),
                     createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.billing_country || ((_Z = $data.form) == null ? void 0 : _Z.errors.billing_country)), 1)
                   ])
-                ], 64)) : createCommentVNode("", true),
+                ], 512), [
+                  [vShow, $data.sameAddress === false]
+                ]),
                 createVNode("div", { class: "d-grid d-md-block" }, [
                   createVNode("button", {
                     type: "submit",
@@ -950,11 +952,11 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                             key: 0,
                             class: "text-danger mb-3"
                           }, toDisplayString(errors.same_address), 1)) : createCommentVNode("", true),
-                          !$data.sameAddress ? (openBlock(), createBlock(Fragment, { key: 1 }, [
+                          withDirectives(createVNode("div", null, [
                             createVNode("div", { class: "form-floating mb-3" }, [
                               createVNode(_component_Field, {
                                 type: "text",
-                                class: ["form-control", (errors.billing_name || ((_o = $data.form) == null ? void 0 : _o.billing_errors.name)) && "is-invalid"],
+                                class: ["form-control", (errors.billing_name || ((_o = $data.form) == null ? void 0 : _o.errors.billing_name)) && "is-invalid"],
                                 name: "billing_name",
                                 id: "billing_name",
                                 placeholder: "Name"
@@ -1062,7 +1064,9 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                               }, "Country"),
                               createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.billing_country || ((_z = $data.form) == null ? void 0 : _z.errors.billing_country)), 1)
                             ])
-                          ], 64)) : createCommentVNode("", true),
+                          ], 512), [
+                            [vShow, $data.sameAddress === false]
+                          ]),
                           createVNode("div", { class: "d-grid d-md-block" }, [
                             createVNode("button", {
                               type: "submit",

@@ -3,7 +3,7 @@ import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderAttr, ssrRender
 import { _ as _export_sfc, L as Layout } from "./Layout-0dd77213.js";
 import "@inertiajs/vue3";
 import "aos";
-const FaqContainer_vue_vue_type_style_index_0_scoped_0bd921fc_lang = "";
+const FaqContainer_vue_vue_type_style_index_0_scoped_a7412228_lang = "";
 const _sfc_main$1 = {
   name: "FaqContainer",
   props: {
@@ -16,9 +16,14 @@ const _sfc_main$1 = {
   }
 };
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "faq-container" }, _attrs))} data-v-0bd921fc><h3 data-v-0bd921fc>${ssrInterpolate($props.title)}</h3><div class="accordion accordion-flush" id="faq-accordion" data-v-0bd921fc><!--[-->`);
+  _push(`<div${ssrRenderAttrs(mergeProps({
+    class: "faq-container",
+    "data-aos": "fade-left",
+    "data-aos-once": "true",
+    "data-aos-duration": "1500"
+  }, _attrs))} data-v-a7412228><h3 data-v-a7412228>${ssrInterpolate($props.title)}</h3><div class="accordion accordion-flush" id="faq-accordion" data-v-a7412228><!--[-->`);
   ssrRenderList($props.questions, ({ question, answer }, index) => {
-    _push(`<div class="accordion-item" data-v-0bd921fc><h2 class="accordion-header" data-v-0bd921fc><button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse"${ssrRenderAttr("data-bs-target", `#flush-collapse-${index}`)} aria-expanded="false"${ssrRenderAttr("aria-controls", `flush-collapse-${index}`)} data-v-0bd921fc>${ssrInterpolate(question)}</button></h2><div${ssrRenderAttr("id", `flush-collapse-${index}`)} class="accordion-collapse collapse" data-bs-parent="#faq-accordion" data-v-0bd921fc><div class="accordion-body" data-v-0bd921fc>${ssrInterpolate(answer)}</div></div></div>`);
+    _push(`<div class="accordion-item" data-v-a7412228><h2 class="accordion-header" data-v-a7412228><button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse"${ssrRenderAttr("data-bs-target", `#flush-collapse-${index}`)} aria-expanded="false"${ssrRenderAttr("aria-controls", `flush-collapse-${index}`)} data-v-a7412228>${ssrInterpolate(question)}</button></h2><div${ssrRenderAttr("id", `flush-collapse-${index}`)} class="accordion-collapse collapse" data-bs-parent="#faq-accordion" data-v-a7412228><div class="accordion-body" data-v-a7412228>${ssrInterpolate(answer)}</div></div></div>`);
   });
   _push(`<!--]--></div></div>`);
 }
@@ -28,7 +33,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Support/FaqContainer.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const FaqContainer = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-0bd921fc"]]);
+const FaqContainer = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-a7412228"]]);
 const _sfc_main = {
   name: "Faq",
   components: {

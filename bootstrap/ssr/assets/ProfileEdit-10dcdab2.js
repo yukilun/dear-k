@@ -564,13 +564,7 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           placeholder: "Password",
           autocomplete: "current-password"
         }, null, _parent2, _scopeId));
-        _push2(`<label for="password-delete" class="form-label"${_scopeId}>Password</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.password || ((_b = _ctx.form) == null ? void 0 : _b.errors.password))}</div></div>`);
-        if (_ctx.status === "success") {
-          _push2(`<p class="mb-4 text-success"${_scopeId}>Password has been updated successfully!</p>`);
-        } else {
-          _push2(`<!---->`);
-        }
-        _push2(`<div class="d-flex gap-3 mt-4"${_scopeId}><button type="submit" class="${ssrRenderClass([((_c = _ctx.form) == null ? void 0 : _c.processing) && "opacity-25", "btn btn-danger rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_d = _ctx.form) == null ? void 0 : _d.processing) ? " disabled" : ""}${_scopeId}> Delete Account </button></div>`);
+        _push2(`<label for="password-delete" class="form-label"${_scopeId}>Password</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.password || ((_b = _ctx.form) == null ? void 0 : _b.errors.password))}</div></div><div class="d-flex gap-3 mt-4"${_scopeId}><button type="submit" class="${ssrRenderClass([((_c = _ctx.form) == null ? void 0 : _c.processing) && "opacity-25", "btn btn-danger rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_d = _ctx.form) == null ? void 0 : _d.processing) ? " disabled" : ""}${_scopeId}> Delete Account </button></div>`);
       } else {
         return [
           createVNode("p", { class: "fs-5 fw-semi-bold" }, "Delete Account"),
@@ -590,10 +584,6 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
             }, "Password"),
             createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.password || ((_f = _ctx.form) == null ? void 0 : _f.errors.password)), 1)
           ]),
-          _ctx.status === "success" ? (openBlock(), createBlock("p", {
-            key: 0,
-            class: "mb-4 text-success"
-          }, "Password has been updated successfully!")) : createCommentVNode("", true),
           createVNode("div", { class: "d-flex gap-3 mt-4" }, [
             createVNode("button", {
               type: "submit",
