@@ -21,6 +21,6 @@ export default {
 
 <template>
     <Layout>
-        <TextContainer :title="title" :paragraphs="paragraphs" :image="image" />
+        <TextContainer :title="title" :paragraphs="paragraphs" />
     </Layout>
 </template>

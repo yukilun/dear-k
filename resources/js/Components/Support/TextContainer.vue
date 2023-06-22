@@ -4,21 +4,16 @@ export default {
     props: {
         title: String,
         image: Object,
-        paragraphs: Array
-    },
-    methods: {
-        getImgUrl() {
-            return new URL(this.image.src, import.meta.url);
-        }
+        paragraphs: Array,
     }
 }
 </script>
 
 <template>
-    <div class="text-container">
+    <div class="text-container" data-aos="fade-left" data-aos-once="true" data-aos-duration="1500">
         <h3>{{ title }}</h3>
         <div v-if="image" class="img-container">
-            <img :src="getImgUrl()" :alt="image.alt">
+            <img :src="`${image?.src}`" :alt="image?.alt">
         </div>
         <p v-for="paragraph in paragraphs">
             {{ paragraph }}

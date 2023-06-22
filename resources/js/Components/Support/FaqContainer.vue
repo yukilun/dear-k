@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-    <div class="faq-container">
+    <div class="faq-container" data-aos="fade-left" data-aos-once="true" data-aos-duration="1500">
         <h3>{{ title }}</h3>
         <div class="accordion accordion-flush" id="faq-accordion">
             <div v-for="({question, answer}, index) in questions" class="accordion-item">

@@ -9,7 +9,7 @@ export default {
     },
     created() {
         this.title = "About";
-        this.image = { src: "../../../../public/images/studio.jpg", alt: "studio photo" };
+        this.image = { src: "/images/studio.jpg", alt: "studio photo" };
         this.paragraphs = [
             ` Welcome to Dear K., your go-to destination for simple and trendy Korean-style clothing for women in Canada.At Dear
             K., we believe that fashion should be accessible, effortless, and empowering.We curate a collection of
