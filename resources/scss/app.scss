@@ -1,0 +1,47 @@
+@use 'custom' as *;
+@use 'mixins' as *;
+
+// IMPORT FONT
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html, body {
+    width: 100%;
+}
+
+#app {
+    font-family: 'Noto Sans', sans-serif ;
+    color: $gray-700;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-font {
+    font-family: 'Lora', serif;
+}
+
+.heading-line::before {
+    content: "";
+    width: 3rem;
+    height: 0.15rem;
+    display: block;
+    margin: 0 auto;
+    background-color: $secondary;
+}
+.accordion-button {
+    box-shadow: none !important;
+} 
+
+input, select {
+    box-shadow: none !important;
+}
+
+.form-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+
+    label {
+        color: $input-placeholder-color;
+    }
+}

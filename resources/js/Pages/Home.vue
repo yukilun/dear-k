@@ -1,23 +1,27 @@
-<template>
-    <h1>Hello World</h1>
-    <form>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</template>
+<script>
+import Layout from '../Layouts/Layout.vue';
+import Carousel from '../Components/Carousel.vue';
+import FeatureProducts from '../Components/FeatureProducts.vue';
 
-<style lang="scss">
-    @import '../../scss/style.scss';
-</style>
+export default {
+    name: 'Home',
+    components: {
+        Layout,
+        Carousel,
+        FeatureProducts
+    },
+    props: {
+        bestProducts: Array,
+        newProducts: Array,
+        banners: Array,
+    }
+}
+</script>
+
+<template>
+    <Layout>
+        <Carousel :banners="banners" />
+        <FeatureProducts :products="newProducts" title="New Items" class="bg-light mt-4" />
+        <FeatureProducts :products="bestProducts" title="Best Seller" />
+    </Layout>
+</template>

@@ -1,6 +1,8 @@
 // MY THEME COLOR
-$yellow: #EDC127;
-$green:#7A921A;
+$yellow: #dbb426;
+$green:#8ea824;
+$olive: #a39d65;
+$tan: #a18e6e;
 
 // WHITE AND GRAY COLORS
 $white:    #fff;
@@ -15,9 +17,29 @@ $gray-800: #343a40;
 $gray-900: #212529;
 $black:    #000;
 
-$primary:       $green;
-$secondary:     $yellow;
+$primary:       $tan;
+$secondary:     $olive;
+$success:       $green;
+
+//OVERIDE ACCORDION STYLE
+$accordion-button-active-bg: white;
+$accordion-button-focus-border-color: white;
+$accordion-button-focus-box-shadow: none;
+$accordion-button-color: $gray-700;
+$accordion-color: $gray-700;
+$accordion-button-active-color: $gray-700; 
+$accordion-icon-color: $primary;
+$accordion-icon-active-color: $primary;
+
+//OVERIDE FORM STYLE
+$input-placeholder-color: $gray-500;
+$input-border-radius: 5px;
+$form-select-focus-box-shadow: none;
+$form-label-color: $input-placeholder-color;
+$form-feedback-icon-valid: none;
+$form-feedback-icon-invalid: none;
 
 // IMPORT BOOTSTRAP 5
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
 
