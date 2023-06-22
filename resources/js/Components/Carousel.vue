@@ -12,10 +12,11 @@ export default {
 
 <template>
     <div class="container-lg" data-aos="fade-right" data-aos-once="true" data-aos-duration="2500">
-        <swiper-container navigation="true" :pagination="{clickable: true}" speed="500" loop="true" autoplay-delay="2000"
+        <swiper-container navigation="true" :pagination="{ clickable: true }" speed="500" loop="true" autoplay-delay="2000"
             autoplay-disable-on-interaction="false">
             <swiper-slide v-for="banner in banners">
-                <img :src="`/storage/${banner.banner_url}`" class="d-block w-100" alt="...">
+                <img :src="`/storage/${banner.banner_horiz_url}`" class="d-none d-sm-block" alt="...">
+                <img :src="`/storage/${banner.banner_vert_url}`" class="d-block d-sm-none" alt="...">
             </swiper-slide>
         </swiper-container>
     </div>
@@ -23,6 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../scss/custom' as *;
+
 swiper-container {
     --swiper-theme-color: white;
     --swiper-navigation-size: 0px;
@@ -34,7 +36,11 @@ swiper-container {
     }
 
     swiper-slide {
-        aspect-ratio: 2 / 1;
+        aspect-ratio: 3 / 4;
+
+        @include media-breakpoint-up(sm) {
+            aspect-ratio: 2 / 1;
+        }
 
         img {
             width: 100%;
@@ -44,6 +50,4 @@ swiper-container {
         }
     }
 }
-
-
 </style>

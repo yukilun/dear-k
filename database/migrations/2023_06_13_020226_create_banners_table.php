@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('banner_url');
+            $table->string('banner_horiz_url');
+            $table->string('banner_vert_url');
             $table->timestamps();
         });
     }
