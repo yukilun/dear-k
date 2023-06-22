@@ -1,6 +1,7 @@
-import { _ as _export_sfc, P as ProductCard, L as Layout } from "./ProductCard-f8434ecc.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-0dd77213.js";
+import { P as ProductCard } from "./ProductCard-2b8d9c9f.js";
 import { Link } from "@inertiajs/vue3";
-import { resolveComponent, mergeProps, withCtx, createVNode, createTextVNode, toDisplayString, useSSRContext, openBlock, createBlock, createCommentVNode } from "vue";
+import { resolveComponent, mergeProps, withCtx, createVNode, createTextVNode, toDisplayString, useSSRContext, openBlock, createBlock } from "vue";
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrRenderClass, ssrInterpolate, ssrRenderAttr } from "vue/server-renderer";
 import "aos";
 const _sfc_main$4 = {
@@ -131,12 +132,12 @@ function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
 const _sfc_setup$4 = _sfc_main$4.setup;
 _sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Pagination.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Product/Pagination.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
 const Pagination = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$4]]);
 const _sfc_main$3 = {
-  name: "Products",
+  name: "ProductList",
   components: {
     ProductCard
   },
@@ -169,10 +170,10 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Products.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Product/ProductList.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const Products = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$3]]);
+const ProductList = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$3]]);
 const _sfc_main$2 = {
   name: "SortDropdown",
   props: {
@@ -218,7 +219,7 @@ const _sfc_main$2 = {
   }
 };
 function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "dropdown" }, _attrs))}> Sort By: <button class="btn btn-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">${ssrInterpolate($data.activeOptionIndex > -1 ? $data.options[$data.activeOptionIndex].name : $data.options[0].name)}</button><ul class="dropdown-menu"><!--[-->`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "dropdown" }, _attrs))}><span class="text-uppercase">Sort By: </span><button class="btn btn-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">${ssrInterpolate($data.activeOptionIndex > -1 ? $data.options[$data.activeOptionIndex].name : $data.options[0].name)}</button><ul class="dropdown-menu"><!--[-->`);
   ssrRenderList($data.options, ({ name, sortBy, orderBy }, index) => {
     _push(`<li><a class="${ssrRenderClass([index === $data.activeOptionIndex && "active", "dropdown-item"])}"${ssrRenderAttr("href", `/products?sort_by=${sortBy}&order_by=${orderBy}${$props.category ? `&category=${$props.category}` : ""}`)}>${ssrInterpolate(name)}</a></li>`);
   });
@@ -227,7 +228,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/SortDropdown.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Product/SortDropdown.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
 const SortDropdown = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$2]]);
@@ -242,10 +243,7 @@ const _sfc_main$1 = {
 };
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Link = resolveComponent("Link");
-  _push(`<nav${ssrRenderAttrs(mergeProps({
-    class: "mx-4 mt-4",
-    style: { "--bs-breadcrumb-divider": "'>'" }
-  }, _attrs))}><ol class="breadcrumb text-uppercase"><li class="breadcrumb-item">`);
+  _push(`<nav${ssrRenderAttrs(mergeProps({ style: { "--bs-breadcrumb-divider": "'>'" } }, _attrs))}><ol class="breadcrumb text-uppercase"><li class="breadcrumb-item">`);
   _push(ssrRenderComponent(_component_Link, {
     class: "link-secondary",
     href: "/"
@@ -293,7 +291,7 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Breadcrumb.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Product/Breadcrumb.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const Breadcrumb = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1]]);
@@ -303,7 +301,7 @@ const _sfc_main = {
     Layout,
     ProductCard,
     Pagination,
-    Products,
+    ProductList,
     SortDropdown,
     Breadcrumb
   },
@@ -327,12 +325,6 @@ const _sfc_main = {
   created() {
     const { data, ...pagination } = this.productsPage;
     this.pagination = pagination;
-    console.log(this.productsPage);
-  },
-  watch: {
-    isReloading(val) {
-      console.log(val);
-    }
   }
 };
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
@@ -340,12 +332,12 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
   const _component_Breadcrumb = resolveComponent("Breadcrumb");
   const _component_SortDropdown = resolveComponent("SortDropdown");
   const _component_font_awesome_icon = resolveComponent("font-awesome-icon");
-  const _component_Products = resolveComponent("Products");
+  const _component_ProductList = resolveComponent("ProductList");
   const _component_Pagination = resolveComponent("Pagination");
   _push(ssrRenderComponent(_component_Layout, _attrs, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<div class="container-lg mt-3 d-flex justify-content-between align-items-center"${_scopeId}>`);
+        _push2(`<div class="container-lg mb-3 d-md-flex justify-content-between align-items-center"${_scopeId}>`);
         _push2(ssrRenderComponent(_component_Breadcrumb, { category: $props.category }, null, _parent2, _scopeId));
         _push2(ssrRenderComponent(_component_SortDropdown, {
           category: $props.category,
@@ -362,20 +354,21 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
           }, null, _parent2, _scopeId));
           _push2(`</p><p${_scopeId}>Loading</p></div>`);
         } else {
-          _push2(`<div class="products"${_scopeId}>`);
-          _push2(ssrRenderComponent(_component_Products, {
-            products: $props.productsPage.data
+          _push2(`<div class="products flex-grow-1 d-flex flex-column"${_scopeId}>`);
+          _push2(ssrRenderComponent(_component_ProductList, {
+            products: $props.productsPage.data,
+            class: "flex-grow-1"
           }, null, _parent2, _scopeId));
           if ($props.productsPage.last_page > 1) {
             _push2(ssrRenderComponent(_component_Pagination, { pagination: $data.pagination }, null, _parent2, _scopeId));
           } else {
-            _push2(`<!---->`);
+            _push2(`<div class="custom-placeholder mb-5"${_scopeId}></div>`);
           }
           _push2(`</div>`);
         }
       } else {
         return [
-          createVNode("div", { class: "container-lg mt-3 d-flex justify-content-between align-items-center" }, [
+          createVNode("div", { class: "container-lg mb-3 d-md-flex justify-content-between align-items-center" }, [
             createVNode(_component_Breadcrumb, { category: $props.category }, null, 8, ["category"]),
             createVNode(_component_SortDropdown, {
               category: $props.category,
@@ -397,15 +390,19 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
             createVNode("p", null, "Loading")
           ])) : (openBlock(), createBlock("div", {
             key: 1,
-            class: "products"
+            class: "products flex-grow-1 d-flex flex-column"
           }, [
-            createVNode(_component_Products, {
-              products: $props.productsPage.data
+            createVNode(_component_ProductList, {
+              products: $props.productsPage.data,
+              class: "flex-grow-1"
             }, null, 8, ["products"]),
             $props.productsPage.last_page > 1 ? (openBlock(), createBlock(_component_Pagination, {
               key: 0,
               pagination: $data.pagination
-            }, null, 8, ["pagination"])) : createCommentVNode("", true)
+            }, null, 8, ["pagination"])) : (openBlock(), createBlock("div", {
+              key: 1,
+              class: "custom-placeholder mb-5"
+            }))
           ]))
         ];
       }
@@ -416,10 +413,10 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Category.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Product/Products.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const Category = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
+const Products = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 export {
-  Category as default
+  Products as default
 };

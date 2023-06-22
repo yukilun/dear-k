@@ -42,14 +42,12 @@ export default {
 
         <div class="form-floating mb-3">
             <Field type="password" class="form-control"
-                :class="(errors.password || form?.errors.password) && 'is-invalid'" name="password" id="password"
-                placeholder="Password" />
-            <label for="password" class="form-label">Password</label>
+                :class="(errors.password || form?.errors.password) && 'is-invalid'" name="password" id="password-delete"
+                placeholder="Password" autocomplete="current-password"/>
+            <label for="password-delete" class="form-label">Password</label>
             <div class="invalid-feedback">{{ errors.password || form?.errors.password }}</div>
         </div>
-
-        <p v-if="status === 'success'" class="mb-4 text-success">Password has been updated successfully!</p>
-
+        
         <div class="d-flex gap-3 mt-4">
             <!-- <button type="reset" class="btn btn-secondary rounded-0 text-white" :class="form?.processing && 'opacity-25'"
                     :disabled="form?.processing">

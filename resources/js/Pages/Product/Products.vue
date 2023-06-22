@@ -36,7 +36,6 @@ export default {
     created() {
         const { data, ...pagination } = this.productsPage;
         this.pagination = pagination;
-        console.log(this.productsPage);
     }
 }
 </script>
@@ -53,7 +52,8 @@ export default {
         </div>
         <div v-else class="products flex-grow-1 d-flex flex-column">
             <ProductList :products="productsPage.data" class="flex-grow-1"/>
-            <Pagination :pagination="pagination" v-if="productsPage.last_page > 1" />
+            <Pagination v-if="productsPage.last_page > 1" :pagination="pagination" />
+            <div v-else class="custom-placeholder mb-5"></div>
         </div>
     </Layout>
 </template>

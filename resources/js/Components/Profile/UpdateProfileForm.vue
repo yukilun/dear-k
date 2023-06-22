@@ -82,7 +82,7 @@ export default {
 
         <div class="form-floating mb-3">
             <Field type="email" class="form-control" :class="(errors.email || form?.errors.email) && 'is-invalid'"
-                name="email" id="email" placeholder="Email" />
+                name="email" id="email" placeholder="Email" autocomplete="email"/>
             <label for="email" class="form-label">Email</label>
             <div class="invalid-feedback">{{ errors.email || form?.errors.email }}</div>
         </div>

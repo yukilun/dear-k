@@ -48,14 +48,14 @@ export default {
                 <p class="mb-3 text-danger"><small>{{ form?.errors.email }}</small></p>
                 <div class="form-floating mb-3">
                     <Field type="email" class="form-control" :class="errors.email && 'is-invalid'" name="email" id="email"
-                        placeholder="Email" />
+                        placeholder="Email" autocomplete="username"/>
                     <label for="email" class="form-label">Email</label>
                     <div class="invalid-feedback">{{ errors.email }}</div>
                 </div>
 
                 <div class="form-floating mb-3">
                     <Field type="password" class="form-control" :class="errors.password && 'is-invalid'" name="password"
-                        id="password" placeholder="Password" />
+                        id="password" placeholder="Password" autocomplete="current-password" />
                     <label for="password" class="form-label">Password</label>
                     <div class="invalid-feedback">{{ errors.password }}</div>
                     <p class="text-end mt-2" v-if="canResetPassword">

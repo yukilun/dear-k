@@ -22,7 +22,7 @@ class ProductController extends Controller
             ->with(['inventories' => ['color']])
             ->with('images')
             ->filter(request(['category']))
-            ->paginate(3)
+            ->paginate(12)
             ->withQueryString();
 
         return Inertia::render('Product/Products', [

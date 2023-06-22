@@ -1,6 +1,7 @@
-import { _ as _export_sfc, P as ProductCard } from "./ProductCard-f8434ecc.js";
+import { P as ProductCard } from "./ProductCard-2b8d9c9f.js";
 import { resolveComponent, mergeProps, useSSRContext } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent, ssrRenderList } from "vue/server-renderer";
+import { _ as _export_sfc } from "./Layout-0dd77213.js";
 const _sfc_main = {
   name: "FeatureProducts",
   components: {
@@ -14,7 +15,7 @@ const _sfc_main = {
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_font_awesome_icon = resolveComponent("font-awesome-icon");
   const _component_ProductCard = resolveComponent("ProductCard");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "border-box" }, _attrs))}><div class="container px-2 py-5"><h4 class="text-uppercase text-center">${ssrInterpolate($props.title)}</h4><div class="heading-line mb-5"></div>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "border-box" }, _attrs))}><div class="container px-2 py-5"><p class="fs-4 text-uppercase text-center">${ssrInterpolate($props.title)}</p><div class="heading-line mb-5"></div>`);
   if ($props.products.length < 1) {
     _push(`<div class="text-center p-5"><p class="fs-1 text-secondary">`);
     _push(ssrRenderComponent(_component_font_awesome_icon, { icon: ["fas", "x"] }, null, _parent));

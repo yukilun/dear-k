@@ -53,7 +53,7 @@ export default {
 
         <div class="form-floating mb-3">
             <Field type="password" class="form-control" :class="(errors.current_password || form?.errors.current_password) && 'is-invalid'"
-                name="current_password" id="current_password" placeholder="Current Password" />
+                name="current_password" id="current_password" placeholder="Current Password" autocomplete="current-password" />
             <label for="current_password" class="form-label">Current Password</label>
             <div class="invalid-feedback">{{ errors.current_password || form?.errors.current_password }}</div>
         </div>
@@ -61,7 +61,7 @@ export default {
 
         <div class="form-floating mb-3">
             <Field type="password" class="form-control" :class="(errors.password || form?.errors.password) && 'is-invalid'"
-                name="password" id="password" placeholder="New Password" />
+                name="password" id="password" placeholder="New Password" autocomplete="new-password"/>
             <label for="password" class="form-label">New Password</label>
             <div class="invalid-feedback">{{ errors.password || form?.errors.password }}</div>
         </div>
@@ -69,7 +69,7 @@ export default {
         <div class="form-floating mb-3">
             <Field type="password" class="form-control"
                 :class="(errors.password_confirmation || form?.errors.password_confirmation) && 'is-invalid'"
-                name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" />
+                name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" autocomplete="new-password"/>
             <label for="password_confirmation" class="form-label">Confirm Password</label>
             <div class="invalid-feedback">{{ errors.password_confirmation ||
                 form?.errors.password_confirmation }}</div>

@@ -17,15 +17,6 @@ export default {
             <swiper-slide v-for="banner in banners">
                 <img :src="`/storage/${banner.banner_url}`" class="d-block w-100" alt="...">
             </swiper-slide>
-            <!-- <swiper-slide>
-                <img src="https://placehold.co/1600x1600/E4D5B7/FFF?text=banner+1" class="d-block w-100" alt="...">
-            </swiper-slide>
-            <swiper-slide>
-                <img src="https://placehold.co/1600x800/bac99a/FFF?text=banner+2" class="d-block w-100" alt="...">
-            </swiper-slide>
-            <swiper-slide>
-                <img src="https://placehold.co/1600x800/CCCCCC/FFF?text=banner+3" class="d-block w-100" alt="...">
-            </swiper-slide> -->
         </swiper-container>
     </div>
 </template>

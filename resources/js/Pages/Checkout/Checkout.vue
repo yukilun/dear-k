@@ -37,7 +37,7 @@ export default {
             billing_postal_code: {
                 unmasked: ""
             },
-            sameAddress: true,
+            sameAddress: null,
             form: null
         }
     },
@@ -47,29 +47,34 @@ export default {
             this.shippingProvince = this.provinces.find(province => province.code == code);
         },
         setSameAddress() {
-            this.sameAddress = true;
-            const formValues = this.$refs.vform.getValues();
-            this.$refs.vform.setValues({
-                ...formValues,
-                billing_name: formValues.shipping_name,
-                billing_street_address: formValues.shipping_street_address,
-                billing_city: formValues.shipping_city,
-                billing_province_code: formValues.shipping_province_code,
-                billing_postal_code: formValues.shipping_postal_code,
-                billing_country: formValues.shipping_country,
-            });
+            if (!this.sameAddress) {
+                this.sameAddress = true;
+                const formValues = this.$refs.vform.getValues();
+                this.$refs.vform.setValues({
+                    ...formValues,
+                    billing_name: formValues.shipping_name,
+                    billing_street_address: formValues.shipping_street_address,
+                    billing_city: formValues.shipping_city,
+                    billing_province_code: formValues.shipping_province_code,
+                    billing_postal_code: formValues.shipping_postal_code,
+                    billing_country: formValues.shipping_country,
+                    same_address: true
+                });
+            }
         },
         setDifferentAddress() {
-            this.sameAddress = false;
-            this.$refs.vform.setValues({
-                billing_name: "",
-                billing_phone: "",
-                billing_street_address: "",
-                billing_city: "",
-                billing_province_code: "",
-                billing_postal_code: "",
-                billing_country: 'Canada',
-            });
+            if (this.sameAddress !== false) {
+                this.sameAddress = false;
+                this.$refs.vform.setValues({
+                    billing_name: "",
+                    billing_street_address: "",
+                    billing_city: "",
+                    billing_province_code: "",
+                    billing_postal_code: "",
+                    billing_country: 'Canada',
+                    same_address: false
+                });
+            }
         },
         handleSubmit(values) {
             var unmaskedValues = {
@@ -88,7 +93,7 @@ export default {
                     billing_postal_code: unmaskedValues.shipping_postal_code,
                     billing_country: unmaskedValues.shipping_country
                 }
-            }
+            };
             this.form = useForm(unmaskedValues);
             this.form.post('/checkout', {
                 onSuccess: () => {
@@ -265,10 +270,10 @@ export default {
                                     {{ errors.same_address }}
                                 </div>
 
-                                <template v-if="!sameAddress">
+                                <div v-show="sameAddress === false">
                                     <div class="form-floating mb-3">
                                         <Field type="text" class="form-control"
-                                            :class="(errors.billing_name || form?.billing_errors.name) && 'is-invalid'"
+                                            :class="(errors.billing_name || form?.errors.billing_name) && 'is-invalid'"
                                             name="billing_name" id="billing_name" placeholder="Name" />
                                         <label for="billing_name" class="form-label">Name</label>
                                         <div class="invalid-feedback">{{ errors.billing_name || form?.errors.billing_name }}
@@ -336,10 +341,12 @@ export default {
                                             <option selected>Canada</option>
                                         </Field>
                                         <label for="billing_country" class="form-label">Country</label>
-                                        <div class="invalid-feedback">{{ errors.billing_country || form?.errors.billing_country }}</div>
+                                        <div class="invalid-feedback">{{ errors.billing_country ||
+                                            form?.errors.billing_country }}</div>
                                     </div>
 
-                                </template>
+                                </div>
+
                                 <div class="d-grid d-md-block">
                                     <button type="submit" class="btn btn-primary btn-lg rounded-0 text-white mt-4 px-5">
                                         Process to payment
@@ -351,5 +358,6 @@ export default {
                     </div>
                 </div>
             </div>
-    </div>
-</Layout></template>
+        </div>
+    </Layout>
+</template>

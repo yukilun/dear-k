@@ -15,7 +15,7 @@ export default {
     components: {
         Link,
     },
-    mounted() {
+    created() {
         this.imgUrls = this.product.images.reduce((acc, img) => {
             if (img.is_main_image === 1) {
                 acc.push('/storage/' + img.image_url);
@@ -36,8 +36,8 @@ export default {
     },
     computed: {
         getUniqueColorHex() {
-            const colors =  [...new Set(this.product.inventories.map(inventory => inventory.color.color_hex))];
-            colors.sort((a, b)=> {
+            const colors = [...new Set(this.product.inventories.map(inventory => inventory.color.color_hex))];
+            colors.sort((a, b) => {
                 const sumA = parseInt(a.slice(0, 2), 16) + parseInt(a.slice(2, 4), 16) + parseInt(a.slice(4, 6), 16);
                 const sumB = parseInt(b.slice(0, 2), 16) + parseInt(b.slice(2, 4), 16) + parseInt(b.slice(4, 6), 16);
                 return sumB - sumA;
@@ -61,6 +61,9 @@ export default {
             <p class="price fs-5">${{ product ? product.price : '20' }}</p>
         </div>
         </Link>
+        <div class="preload-images d-none">
+            <img v-for="imgUrl in imgUrls" :src="imgUrl" />
+        </div>
     </div>
 </template>
 

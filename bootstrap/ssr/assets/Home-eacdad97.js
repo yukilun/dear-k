@@ -1,10 +1,11 @@
-import { _ as _export_sfc, L as Layout } from "./ProductCard-f8434ecc.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-0dd77213.js";
 import { register } from "swiper/element/bundle";
-import { resolveComponent, mergeProps, withCtx, createVNode, openBlock, createBlock, Fragment, renderList, useSSRContext } from "vue";
-import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrRenderAttr } from "vue/server-renderer";
-import { F as FeatureProducts } from "./FeatureProducts-6bcddc77.js";
+import { mergeProps, useSSRContext, resolveComponent, withCtx, createVNode } from "vue";
+import { ssrRenderAttrs, ssrRenderAttr, ssrRenderList, ssrRenderComponent } from "vue/server-renderer";
+import { F as FeatureProducts } from "./FeatureProducts-aae37762.js";
 import "@inertiajs/vue3";
 import "aos";
+import "./ProductCard-2b8d9c9f.js";
 const Carousel_vue_vue_type_style_index_0_scoped_ec207d60_lang = "";
 register();
 const _sfc_main$1 = {
@@ -14,64 +15,16 @@ const _sfc_main$1 = {
   }
 };
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_swiper_container = resolveComponent("swiper-container");
-  const _component_swiper_slide = resolveComponent("swiper-slide");
   _push(`<div${ssrRenderAttrs(mergeProps({
     class: "container-lg",
     "data-aos": "fade-right",
     "data-aos-once": "true",
     "data-aos-duration": "2500"
-  }, _attrs))} data-v-ec207d60>`);
-  _push(ssrRenderComponent(_component_swiper_container, {
-    navigation: "true",
-    pagination: { clickable: true },
-    speed: "500",
-    loop: "true",
-    "autoplay-delay": "2000",
-    "autoplay-disable-on-interaction": "false"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<!--[-->`);
-        ssrRenderList($props.banners, (banner) => {
-          _push2(ssrRenderComponent(_component_swiper_slide, null, {
-            default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-              if (_push3) {
-                _push3(`<img${ssrRenderAttr("src", `/storage/${banner.banner_url}`)} class="d-block w-100" alt="..." data-v-ec207d60${_scopeId2}>`);
-              } else {
-                return [
-                  createVNode("img", {
-                    src: `/storage/${banner.banner_url}`,
-                    class: "d-block w-100",
-                    alt: "..."
-                  }, null, 8, ["src"])
-                ];
-              }
-            }),
-            _: 2
-          }, _parent2, _scopeId));
-        });
-        _push2(`<!--]-->`);
-      } else {
-        return [
-          (openBlock(true), createBlock(Fragment, null, renderList($props.banners, (banner) => {
-            return openBlock(), createBlock(_component_swiper_slide, null, {
-              default: withCtx(() => [
-                createVNode("img", {
-                  src: `/storage/${banner.banner_url}`,
-                  class: "d-block w-100",
-                  alt: "..."
-                }, null, 8, ["src"])
-              ]),
-              _: 2
-            }, 1024);
-          }), 256))
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div>`);
+  }, _attrs))} data-v-ec207d60><swiper-container navigation="true"${ssrRenderAttr("pagination", { clickable: true })} speed="500" loop="true" autoplay-delay="2000" autoplay-disable-on-interaction="false" data-v-ec207d60><!--[-->`);
+  ssrRenderList($props.banners, (banner) => {
+    _push(`<swiper-slide data-v-ec207d60><img${ssrRenderAttr("src", `/storage/${banner.banner_url}`)} class="d-block w-100" alt="..." data-v-ec207d60></swiper-slide>`);
+  });
+  _push(`<!--]--></swiper-container></div>`);
 }
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {

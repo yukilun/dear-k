@@ -16,7 +16,6 @@ export default {
         CartItem
     },
     created() {
-        console.log(this.cartItems);
         this.page = usePage();
     },
     methods: {
