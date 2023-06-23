@@ -70,7 +70,7 @@ _sfc_main$4.setup = (props, ctx) => {
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
 const MessageModal = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$4], ["__scopeId", "data-v-8613c4b7"]]);
-const ProductOptions_vue_vue_type_style_index_0_scoped_2fecb254_lang = "";
+const ProductOptions_vue_vue_type_style_index_0_scoped_7b060254_lang = "";
 const _sfc_main$3 = {
   name: "ProductOptions",
   components: {
@@ -137,9 +137,21 @@ const _sfc_main$3 = {
     this.colors = colors;
     const sizeIds = [...new Set(this.inventories.map((inventory) => inventory.size_id))];
     this.sizes = sizeIds.map((id) => this.inventories.find((inventory) => inventory.size_id === id).size);
-    const firstInstock = this.inventories.find((inventory) => inventory.stock_quantity > 0);
-    this.selection.color_id = firstInstock.color_id;
-    this.selection.size_id = firstInstock.size_id;
+    var instockSizeId = -1;
+    const instockColor = colors.find((color) => {
+      const instockInventory = this.inventories.find((inventory) => inventory.color_id === color.id && inventory.stock_quantity > 0);
+      if (!instockInventory)
+        return false;
+      instockSizeId = instockInventory.size_id;
+      return true;
+    });
+    if (!instockColor) {
+      this.selection.color_id = colorIds[0];
+      this.selection.size_id = sizeIds[0];
+    } else {
+      this.selection.color_id = instockColor.id;
+      this.selection.size_id = instockSizeId;
+    }
   },
   computed: {
     getSelectionColorName() {
@@ -183,21 +195,21 @@ const _sfc_main$3 = {
 };
 function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_MessageModal = resolveComponent("MessageModal");
-  _push(`<form${ssrRenderAttrs(mergeProps({ method: "get" }, _attrs))} data-v-2fecb254>`);
+  _push(`<form${ssrRenderAttrs(mergeProps({ method: "get" }, _attrs))} data-v-7b060254>`);
   _push(ssrRenderComponent(_component_MessageModal, {
     isOpenModal: $data.isOpenModal,
     closeModal: $options.closeModal,
     status: $data.status
   }, null, _parent));
-  _push(`<div class="color-options mb-4" data-v-2fecb254><div class="mb-2 fw-semibold" data-v-2fecb254>Color:  ${ssrInterpolate($options.getSelectionColorName)}</div><div class="d-flex gap-2 flex-wrap" data-v-2fecb254><!--[-->`);
+  _push(`<div class="color-options mb-4" data-v-7b060254><div class="mb-2 fw-semibold" data-v-7b060254>Color:  ${ssrInterpolate($options.getSelectionColorName)}</div><div class="d-flex gap-2 flex-wrap" data-v-7b060254><!--[-->`);
   ssrRenderList($data.colors, ({ id, color_hex }) => {
-    _push(`<div class="color-option" data-v-2fecb254><input class="d-none" type="radio" name="color_id"${ssrIncludeBooleanAttr(ssrLooseEqual($data.selection.color_id, id)) ? " checked" : ""}${ssrRenderAttr("value", id)}${ssrRenderAttr("id", `color-${id}`)} data-v-2fecb254><label${ssrRenderAttr("for", `color-${id}`)} class="${ssrRenderClass([id === $data.selection.color_id && "active", "radio-color"])}" style="${ssrRenderStyle(`background: #${color_hex}`)}" data-v-2fecb254></label></div>`);
+    _push(`<div class="color-option" data-v-7b060254><input class="d-none" type="radio" name="color_id"${ssrIncludeBooleanAttr(ssrLooseEqual($data.selection.color_id, id)) ? " checked" : ""}${ssrRenderAttr("value", id)}${ssrRenderAttr("id", `color-${id}`)} data-v-7b060254><label${ssrRenderAttr("for", `color-${id}`)} class="${ssrRenderClass([id === $data.selection.color_id && "active", "radio-color"])}" style="${ssrRenderStyle(`background: #${color_hex}`)}" data-v-7b060254></label></div>`);
   });
-  _push(`<!--]--></div></div><div class="size-options mb-4" data-v-2fecb254><div class="mb-2 fw-semibold" data-v-2fecb254>Size:  ${ssrInterpolate($options.getSelectionSizeName)}</div><div class="d-flex gap-2 flex-wrap" data-v-2fecb254><!--[-->`);
+  _push(`<!--]--></div></div><div class="size-options mb-4" data-v-7b060254><div class="mb-2 fw-semibold" data-v-7b060254>Size:  ${ssrInterpolate($options.getSelectionSizeName)}</div><div class="d-flex gap-2 flex-wrap" data-v-7b060254><!--[-->`);
   ssrRenderList($data.sizes, ({ id, size_name }) => {
-    _push(`<div class="size-option" data-v-2fecb254><input class="d-none" type="radio" name="size_id"${ssrIncludeBooleanAttr(ssrLooseEqual($data.selection.size_id, id)) ? " checked" : ""}${ssrRenderAttr("value", id)}${ssrRenderAttr("id", `size-${id}`)} data-v-2fecb254><label${ssrRenderAttr("for", `size-${id}`)} class="${ssrRenderClass([[id === $data.selection.size_id && "active", $options.disableSize(id) && "disable"], "radio-size"])}" data-v-2fecb254>${ssrInterpolate(size_name)}</label></div>`);
+    _push(`<div class="size-option" data-v-7b060254><input class="d-none" type="radio" name="size_id"${ssrIncludeBooleanAttr(ssrLooseEqual($data.selection.size_id, id)) ? " checked" : ""}${ssrRenderAttr("value", id)}${ssrRenderAttr("id", `size-${id}`)} data-v-7b060254><label${ssrRenderAttr("for", `size-${id}`)} class="${ssrRenderClass([[id === $data.selection.size_id && "active", $options.disableSize(id) && "disable"], "radio-size"])}" data-v-7b060254>${ssrInterpolate(size_name)}</label></div>`);
   });
-  _push(`<!--]--></div></div><div style="${ssrRenderStyle(!$options.soldOut ? null : { display: "none" })}" class="quantity" data-v-2fecb254><div class="mb-2 fw-semibold" data-v-2fecb254>Quantity: </div><div class="d-flex" data-v-2fecb254><input class="d-none" type="number" name="quantity"${ssrRenderAttr("value", $data.selection.quantity)} data-v-2fecb254><button type="button" class="quantity-btn btn btn-outline-primary rounded-0 border px-3"${ssrIncludeBooleanAttr($options.disableReduceQuantity) ? " disabled" : ""} style="${ssrRenderStyle(`--bs-btn-hover-color: white; --bs-btn-active-color: white;`)}" data-v-2fecb254> - </button><div class="flex-grow-1 h-full py-1 text-center border-top border-bottom" data-v-2fecb254>${ssrInterpolate($data.selection.quantity)}</div><button type="button" class="quantity-btn btn btn-outline-primary rounded-0 border px-3"${ssrIncludeBooleanAttr($options.disableAddQuantity) ? " disabled" : ""} style="${ssrRenderStyle(`--bs-btn-hover-color: white`)}" data-v-2fecb254> + </button></div><div class="stockStatus mt-2" data-v-2fecb254><small class="text-black-50" data-v-2fecb254>${ssrInterpolate($options.getStockStatus)}</small></div></div><div class="addToCart d-grid mt-5" data-v-2fecb254><button type="submit"${ssrIncludeBooleanAttr($options.soldOut) ? " disabled" : ""} class="btn btn-primary btn-lg rounded-0 text-white fw-semibold" data-v-2fecb254>${ssrInterpolate($options.soldOut ? "Sold Out" : "Add To Cart")}</button></div></form>`);
+  _push(`<!--]--></div></div><div style="${ssrRenderStyle(!$options.soldOut ? null : { display: "none" })}" class="quantity" data-v-7b060254><div class="mb-2 fw-semibold" data-v-7b060254>Quantity: </div><div class="d-flex" data-v-7b060254><input class="d-none" type="number" name="quantity"${ssrRenderAttr("value", $data.selection.quantity)} data-v-7b060254><button type="button" class="quantity-btn btn btn-outline-primary rounded-0 border px-3"${ssrIncludeBooleanAttr($options.disableReduceQuantity) ? " disabled" : ""} style="${ssrRenderStyle(`--bs-btn-hover-color: white; --bs-btn-active-color: white;`)}" data-v-7b060254> - </button><div class="flex-grow-1 h-full py-1 text-center border-top border-bottom" data-v-7b060254>${ssrInterpolate($data.selection.quantity)}</div><button type="button" class="quantity-btn btn btn-outline-primary rounded-0 border px-3"${ssrIncludeBooleanAttr($options.disableAddQuantity) ? " disabled" : ""} style="${ssrRenderStyle(`--bs-btn-hover-color: white`)}" data-v-7b060254> + </button></div><div class="stockStatus mt-2" data-v-7b060254><small class="text-black-50" data-v-7b060254>${ssrInterpolate($options.getStockStatus)}</small></div></div><div class="addToCart d-grid mt-5" data-v-7b060254><button type="submit"${ssrIncludeBooleanAttr($options.soldOut) ? " disabled" : ""} class="btn btn-primary btn-lg rounded-0 text-white fw-semibold" data-v-7b060254>${ssrInterpolate($options.soldOut ? "Sold Out" : "Add To Cart")}</button></div></form>`);
 }
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
@@ -205,7 +217,7 @@ _sfc_main$3.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Product/ProductOptions.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const ProductOptions = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$3], ["__scopeId", "data-v-2fecb254"]]);
+const ProductOptions = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$3], ["__scopeId", "data-v-7b060254"]]);
 const ProductGallery_vue_vue_type_style_index_0_scoped_df1406b1_lang = "";
 const _sfc_main$2 = {
   name: "ProductGallery",
