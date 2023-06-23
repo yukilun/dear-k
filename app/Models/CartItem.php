@@ -34,7 +34,7 @@ class CartItem extends Model
 
     // COMPUTE SUBTOTAL
     protected function getSubtotalAttribute() {
-        $inventory = inventory::find($this->inventory_id);
+        $inventory = Inventory::find($this->inventory_id);
         $price = $inventory->product->price;
         return number_format($price * $this->quantity, 2, '.', '');
     }
