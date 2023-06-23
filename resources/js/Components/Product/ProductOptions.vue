@@ -61,20 +61,35 @@ export default {
         // populate the colors and sizes arrays
         const colorIds = [...new Set(this.inventories.map(inventory => inventory.color_id))];
         const colors = colorIds.map(id => this.inventories.find(inventory => inventory.color_id === id).color);
-        colors.sort((a, b)=> {
-                const sumA = parseInt(a.color_hex.slice(0, 2), 16) + parseInt(a.color_hex.slice(2, 4), 16) + parseInt(a.color_hex.slice(4, 6), 16);
-                const sumB = parseInt(b.color_hex.slice(0, 2), 16) + parseInt(b.color_hex.slice(2, 4), 16) + parseInt(b.color_hex.slice(4, 6), 16);
-                return sumB - sumA;
+        colors.sort((a, b) => {
+            const sumA = parseInt(a.color_hex.slice(0, 2), 16) + parseInt(a.color_hex.slice(2, 4), 16) + parseInt(a.color_hex.slice(4, 6), 16);
+            const sumB = parseInt(b.color_hex.slice(0, 2), 16) + parseInt(b.color_hex.slice(2, 4), 16) + parseInt(b.color_hex.slice(4, 6), 16);
+            return sumB - sumA;
         });
         this.colors = colors;
 
         const sizeIds = [...new Set(this.inventories.map(inventory => inventory.size_id))];
         this.sizes = sizeIds.map(id => this.inventories.find(inventory => inventory.size_id === id).size);
-        
-        // set the default selection to the first instock item
-        const firstInstock = this.inventories.find(inventory => inventory.stock_quantity > 0);
-        this.selection.color_id = firstInstock.color_id;
-        this.selection.size_id = firstInstock.size_id;
+
+        // set the default selection to the first instock item (start from the first color option - sorted)
+        var instockSizeId = -1;
+        const instockColor = colors.find(color => {
+            const instockInventory = this.inventories.find(inventory => inventory.color_id === color.id && inventory.stock_quantity > 0);
+            if (!instockInventory) return false;
+            instockSizeId = instockInventory.size_id;
+            return true;
+        });
+        if (!instockColor) {
+            this.selection.color_id = colorIds[0];
+            this.selection.size_id = sizeIds[0];
+        }
+        else {
+            this.selection.color_id = instockColor.id;
+            this.selection.size_id = instockSizeId;
+        }
+        // const firstInstock = this.inventories.find(inventory => inventory.stock_quantity > 0);
+        // this.selection.color_id = firstInstock.color_id;
+        // this.selection.size_id = firstInstock.size_id;
     },
     computed: {
         getSelectionColorName() {
@@ -151,16 +166,17 @@ export default {
             <div class="mb-2 fw-semibold">Quantity: </div>
             <div class="d-flex">
                 <input class="d-none" type="number" name="quantity" v-model="selection.quantity" />
-                <button type="button" class="quantity-btn btn btn-outline-primary rounded-0 border px-3" :disabled="disableReduceQuantity"
-                    @click="this.selection.quantity--"
+                <button type="button" class="quantity-btn btn btn-outline-primary rounded-0 border px-3"
+                    :disabled="disableReduceQuantity" @click="this.selection.quantity--"
                     :style="`--bs-btn-hover-color: white; --bs-btn-active-color: white;`">
                     -
                 </button>
                 <div class="flex-grow-1 h-full py-1 text-center border-top border-bottom">
                     {{ selection.quantity }}
                 </div>
-                <button type="button" class="quantity-btn btn btn-outline-primary rounded-0 border px-3" :disabled="disableAddQuantity"
-                    @click="this.selection.quantity++" :style="`--bs-btn-hover-color: white`">
+                <button type="button" class="quantity-btn btn btn-outline-primary rounded-0 border px-3"
+                    :disabled="disableAddQuantity" @click="this.selection.quantity++"
+                    :style="`--bs-btn-hover-color: white`">
                     +
                 </button>
             </div>
@@ -207,6 +223,7 @@ export default {
     }
 
 }
+
 .quantity-btn {
     --bs-btn-hover-color: white;
     --bs-btn-active-color: white;
