@@ -28,7 +28,7 @@ class HomeController extends Controller
                         ->whereRelation('batch', 'published_at', '<=', Carbon::now())
                         ->withSum('inventories', 'sold_quantity')
                         ->orderBy('inventories_sum_sold_quantity', 'desc')
-                        ->take(5)
+                        ->take(7)
                         ->with(['inventories' => ['color']])
                         ->with('images')
                         ->get();
