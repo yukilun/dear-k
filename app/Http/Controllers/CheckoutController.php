@@ -317,10 +317,10 @@ class CheckoutController extends Controller
             );
         } catch (\UnexpectedValueException $e) {
             // Invalid payload
-            return response('invalid payload', 400);
+            return response('', 400);
         } catch (\Stripe\Exception\SignatureVerificationException $e) {
             // Invalid signature
-            return response($e->getMessage(), 400);
+            return response('', 400);
         }
 
         // Handle the event
