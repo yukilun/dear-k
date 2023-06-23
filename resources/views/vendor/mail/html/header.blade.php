@@ -7,7 +7,8 @@
 {{-- @else
 {{ $slot }}
 @endif --}}
-<img src="{{asset('images/logo.png')}}" class="logo" alt="Laravel Logo">
+<img src="{{asset('images/logo.png')}}" class="logo" alt="Dear K.">
+
 </a>
 </td>
 </tr>
