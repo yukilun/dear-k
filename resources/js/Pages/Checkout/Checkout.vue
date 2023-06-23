@@ -349,9 +349,13 @@ export default {
 
                                 <div class="d-grid d-md-block">
                                     <button type="submit" class="btn btn-primary btn-lg rounded-0 text-white mt-4 px-5">
-                                        Process to payment
+                                        Place The Order *
                                     </button>
                                 </div>
+                                <p class="text-black-50 mt-3">
+                                    * Once you place the order, the items will be reserved for you.
+                                    However, you must complete the payment within 3 hours or otherwise your order would be cancelled automatically.
+                                </p>
                             </Form>
 
                         </div>
