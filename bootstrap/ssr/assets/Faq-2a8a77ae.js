@@ -53,7 +53,7 @@ const _sfc_main = {
       },
       {
         question: `What are the payment options available? `,
-        answer: `We accept major credit cards (Visa, Mastercard, American Express) and PayPal for secure online payments.`
+        answer: `We accept major credit cards (Visa, Mastercard, American Express) for secure online payments.`
       },
       {
         question: `Do you have a physical store where I can try on the clothes? `,

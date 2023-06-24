@@ -34,7 +34,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
   _push(ssrRenderComponent(_component_Layout, _attrs, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`<div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center py-5 m-5"${_scopeId}><h3${_scopeId}>${ssrInterpolate($options.title)}</h3><p${_scopeId}>${ssrInterpolate($options.description)}</p>`);
+        _push2(`<div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center py-5 m-5"${_scopeId}><h3${_scopeId}>${ssrInterpolate($options.title)}</h3><p class="mt-3"${_scopeId}>${ssrInterpolate($options.description)}</p>`);
         _push2(ssrRenderComponent(_component_Link, {
           href: "/",
           class: "btn btn-primary btn-lg text-white rounded-0 mt-4 px-4"
@@ -55,7 +55,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
         return [
           createVNode("div", { class: "flex-grow-1 d-flex flex-column justify-content-center align-items-center py-5 m-5" }, [
             createVNode("h3", null, toDisplayString($options.title), 1),
-            createVNode("p", null, toDisplayString($options.description), 1),
+            createVNode("p", { class: "mt-3" }, toDisplayString($options.description), 1),
             createVNode(_component_Link, {
               href: "/",
               class: "btn btn-primary btn-lg text-white rounded-0 mt-4 px-4"
