@@ -75,7 +75,7 @@ export default {
 
                 <div class="form-floating mb-3">
                     <Field type="email" class="form-control" :class="(errors.email || form?.errors.email) && 'is-invalid'"
-                        name="email" id="email" placeholder="Email" autocomplete="email"/>
+                        name="email" id="email" placeholder="Email" autocomplete="email" />
                     <label for="email" class="form-label">Email</label>
                     <div class="invalid-feedback">{{ errors.email || form?.errors.email }}</div>
                 </div>
@@ -85,7 +85,7 @@ export default {
                         <div class="form-floating">
                             <Field type="password" class="form-control"
                                 :class="(errors.password || form?.errors.password) && 'is-invalid'" name="password"
-                                id="password" placeholder="Password" autocomplete="new-password"/>
+                                id="password" placeholder="Password" autocomplete="new-password" />
                             <label for="password" class="form-label">Password</label>
                             <div class="invalid-feedback">{{ errors.password || form?.errors.password }}</div>
                         </div>
@@ -95,7 +95,8 @@ export default {
                         <div class="form-floating">
                             <Field type="password" class="form-control"
                                 :class="(errors.password_confirmation || form?.errors.password_confirmation) && 'is-invalid'"
-                                name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" autocomplete="new-password" />
+                                name="password_confirmation" id="password_confirmation" placeholder="Confirm Password"
+                                autocomplete="new-password" />
                             <label for="password_confirmation" class="form-label">Confirm Password</label>
                             <div class="invalid-feedback">{{ errors.password_confirmation ||
                                 form?.errors.password_confirmation }}</div>
@@ -120,7 +121,7 @@ export default {
                 </div>
 
                 <div class="row g-3 mb-3">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-floating">
                             <Field type="text" class="form-control"
                                 :class="(errors.city || form?.errors.city) && 'is-invalid'" name="city" id="city"
@@ -130,19 +131,19 @@ export default {
                         </div>
                     </div>
 
-                    <div class="col-md-4 h-100">
+                    <div class="col-md-6 h-100">
                         <div class="form-floating">
                             <Field as="select" name="province_code" id="province_code" class="form-select h-100"
                                 :class="(errors.province_code || form?.errors.province_code) && 'is-invalid'">
                                 <option disabled></option>
-                                <option v-for="{ code } in provinces" :value="code">{{ code }}</option>
+                                <option v-for="{ code, province_name } in provinces" :value="code">{{ code }} - {{ province_name }}</option>
                             </Field>
                             <label for="province_code" class="form-label">Province</label>
                             <div class="invalid-feedback">{{ errors.province_code || form?.errors.province_code }}</div>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-floating">
                             <Field type="text" class="form-control"
                                 :class="(errors.postal_code || form?.errors.postal_code) && 'is-invalid'" name="postal_code"
@@ -151,15 +152,17 @@ export default {
                             <div class="invalid-feedback">{{ errors.postal_code || form?.errors.postal_code }}</div>
                         </div>
                     </div>
-                </div>
 
-                <div class="form-floating">
-                    <Field as="select" name="country" id="country" class="form-select h-100"
-                    :class="(errors.country || form?.errors.country) && 'is-invalid'">
-                        <option selected>Canada</option>
-                    </Field>
-                    <label for="country" class="form-label">Country</label>
-                    <div class="invalid-feedback">{{ errors.country || form?.errors.country }}</div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <Field as="select" name="country" id="country" class="form-select h-100"
+                                :class="(errors.country || form?.errors.country) && 'is-invalid'">
+                                <option selected>Canada</option>
+                            </Field>
+                            <label for="country" class="form-label">Country</label>
+                            <div class="invalid-feedback">{{ errors.country || form?.errors.country }}</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="d-grid mt-5">

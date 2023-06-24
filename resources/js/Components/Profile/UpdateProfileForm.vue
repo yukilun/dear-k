@@ -114,7 +114,7 @@ export default {
         </div>
 
         <div class="row g-3 mb-3">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="form-floating">
                     <Field type="text" class="form-control" :class="(errors.city || form?.errors.city) && 'is-invalid'"
                         name="city" id="city" placeholder="City" max="50" />
@@ -123,19 +123,19 @@ export default {
                 </div>
             </div>
 
-            <div class="col-md-4 h-100">
+            <div class="col-md-6 h-100">
                 <div class="form-floating">
                     <Field as="select" name="province_code" id="province_code" class="form-select h-100"
                         :class="(errors.province_code || form?.errors.province_code) && 'is-invalid'">
                         <option disabled></option>
-                        <option v-for="{ code } in provinces" :value="code">{{ code }}</option>
+                        <option v-for="{ code, province_name } in provinces" :value="code">{{ code }} - {{ province_name }}</option>
                     </Field>
                     <label for="province_code" class="form-label">Province</label>
                     <div class="invalid-feedback">{{ errors.province_code || form?.errors.province_code }}</div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="form-floating">
                     <Field type="text" class="form-control"
                         :class="(errors.postal_code || form?.errors.postal_code) && 'is-invalid'" name="postal_code"
@@ -144,16 +144,19 @@ export default {
                     <div class="invalid-feedback">{{ errors.postal_code || form?.errors.postal_code }}</div>
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <Field as="select" name="country" id="country" class="form-select h-100"
+                        :class="(errors.country || form?.errors.country) && 'is-invalid'">
+                        <option selected>Canada</option>
+                    </Field>
+                    <label for="country" class="form-label">Country</label>
+                    <div class="invalid-feedback">{{ errors.country || form?.errors.country }}</div>
+                </div>
+            </div>
         </div>
 
-        <div class="form-floating">
-            <Field as="select" name="country" id="country" class="form-select h-100"
-                :class="(errors.country || form?.errors.country) && 'is-invalid'">
-                <option selected>Canada</option>
-            </Field>
-            <label for="country" class="form-label">Country</label>
-            <div class="invalid-feedback">{{ errors.country || form?.errors.country }}</div>
-        </div>
 
         <div class="d-flex gap-3 mt-4">
             <button type="button" @click="customResetForm" class="btn btn-secondary rounded-0 text-white"
