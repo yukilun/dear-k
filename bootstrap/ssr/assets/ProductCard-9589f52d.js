@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/vue3";
 import { resolveComponent, mergeProps, withCtx, createVNode, openBlock, createBlock, Fragment, renderList, toDisplayString, useSSRContext } from "vue";
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderStyle, ssrRenderList, ssrInterpolate, ssrRenderAttr } from "vue/server-renderer";
-import { _ as _export_sfc } from "./Layout-0dd77213.js";
+import { _ as _export_sfc } from "./Layout-ef8a87b0.js";
 const ProductCard_vue_vue_type_style_index_0_scoped_0e14400f_lang = "";
 const _sfc_main = {
   name: "ProductCard",

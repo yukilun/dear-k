@@ -1,9 +1,9 @@
 import { Link, router } from "@inertiajs/vue3";
-import { O as OrderStatus } from "./OrderStatus-60b2f08b.js";
+import { O as OrderStatus } from "./OrderStatus-bb56f030.js";
 import { resolveComponent, mergeProps, withCtx, createTextVNode, useSSRContext, createVNode, openBlock, createBlock, createCommentVNode, Fragment, renderList } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent, ssrRenderList } from "vue/server-renderer";
-import { _ as _export_sfc, L as Layout } from "./Layout-0dd77213.js";
-import { C as CustomerLayout } from "./CustomerLayout-440f7e7f.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-ef8a87b0.js";
+import { C as CustomerLayout } from "./CustomerLayout-803aabe9.js";
 import "aos";
 const _sfc_main$1 = {
   name: "OrderRow",

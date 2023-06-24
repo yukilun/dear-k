@@ -1,7 +1,7 @@
-import { P as ProductCard } from "./ProductCard-2b8d9c9f.js";
+import { P as ProductCard } from "./ProductCard-9589f52d.js";
 import { resolveComponent, mergeProps, useSSRContext } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent, ssrRenderList } from "vue/server-renderer";
-import { _ as _export_sfc } from "./Layout-0dd77213.js";
+import { _ as _export_sfc } from "./Layout-ef8a87b0.js";
 const _sfc_main = {
   name: "FeatureProducts",
   components: {

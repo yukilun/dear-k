@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/vue3";
 import { useSSRContext, resolveComponent, mergeProps, withCtx, createTextVNode, toDisplayString } from "vue";
 import { ssrRenderAttrs, ssrRenderList, ssrRenderClass, ssrRenderComponent, ssrInterpolate, ssrRenderSlot } from "vue/server-renderer";
-import { _ as _export_sfc } from "./Layout-0dd77213.js";
+import { _ as _export_sfc } from "./Layout-ef8a87b0.js";
 const CustomerTabs_vue_vue_type_style_index_0_scoped_9784f101_lang = "";
 const _sfc_main$1 = {
   name: "CustomerTabs",

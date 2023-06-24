@@ -9,21 +9,21 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$6 = {
+const _sfc_main$7 = {
   name: "Announcement"
 };
-function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(mergeProps({ class: "text-center bg-primary py-2 px-4" }, _attrs))}><h6 class="fw-normal text-white">Free Shipping 🚚 on orders over $100</h6></div>`);
 }
-const _sfc_setup$6 = _sfc_main$6.setup;
-_sfc_main$6.setup = (props, ctx) => {
+const _sfc_setup$7 = _sfc_main$7.setup;
+_sfc_main$7.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Announcement.vue");
-  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
+  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-const Announcement = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$6]]);
+const Announcement = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender$7]]);
 const NavIcons_vue_vue_type_style_index_0_scoped_800626a1_lang = "";
-const _sfc_main$5 = {
+const _sfc_main$6 = {
   name: "NavIcons",
   props: {
     openSideMenu: Function
@@ -35,7 +35,7 @@ const _sfc_main$5 = {
     this.page = usePage();
   }
 };
-function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Link = resolveComponent("Link");
   const _component_font_awesome_icon = resolveComponent("font-awesome-icon");
   _push(`<ul${ssrRenderAttrs(mergeProps({ class: "nav-icons nav justify-content-end text-uppercase fs-5" }, _attrs))} data-v-800626a1><li class="nav-item" data-v-800626a1>`);
@@ -79,21 +79,21 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   _push(ssrRenderComponent(_component_font_awesome_icon, { icon: ["fas", "bars"] }, null, _parent));
   _push(`</button></li></ul>`);
 }
-const _sfc_setup$5 = _sfc_main$5.setup;
-_sfc_main$5.setup = (props, ctx) => {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/NavIcons.vue");
-  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const NavIcons = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-800626a1"]]);
+const NavIcons = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$6], ["__scopeId", "data-v-800626a1"]]);
 const NavMenu_vue_vue_type_style_index_0_scoped_f7c3f741_lang = "";
-const _sfc_main$4 = {
+const _sfc_main$5 = {
   name: "NavMenu",
   components: {
     Link
   }
 };
-function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Link = resolveComponent("Link");
   _push(`<ul${ssrRenderAttrs(mergeProps({ class: "nav-menu nav justify-content-center text-uppercase flex-nowrap" }, _attrs))} data-v-f7c3f741><li class="nav-item" data-v-f7c3f741>`);
   _push(ssrRenderComponent(_component_Link, {
@@ -193,15 +193,15 @@ function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</li></ul>`);
 }
-const _sfc_setup$4 = _sfc_main$4.setup;
-_sfc_main$4.setup = (props, ctx) => {
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/NavMenu.vue");
-  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-const NavMenu = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$4], ["__scopeId", "data-v-f7c3f741"]]);
+const NavMenu = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-f7c3f741"]]);
 const NavSideMenu_vue_vue_type_style_index_0_scoped_15740448_lang = "";
-const _sfc_main$3 = {
+const _sfc_main$4 = {
   name: "NavSideMenu",
   props: {
     isOpenedSideMenu: Boolean,
@@ -212,7 +212,7 @@ const _sfc_main$3 = {
     Link
   }
 };
-function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_font_awesome_icon = resolveComponent("font-awesome-icon");
   const _component_NavMenu = resolveComponent("NavMenu");
   _push(`<div${ssrRenderAttrs(mergeProps({
@@ -224,16 +224,16 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   _push(ssrRenderComponent(_component_NavMenu, { class: "flex-column align-items-start" }, null, _parent));
   _push(`</div></div>`);
 }
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/NavSideMenu.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const NavSideMenu = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$3], ["__scopeId", "data-v-15740448"]]);
+const NavSideMenu = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$4], ["__scopeId", "data-v-15740448"]]);
 const _imports_0 = "/build/assets/logo-327be80c.png";
 const Navbar_vue_vue_type_style_index_0_scoped_051fc6cc_lang = "";
-const _sfc_main$2 = {
+const _sfc_main$3 = {
   name: "Navbar",
   components: {
     Link,
@@ -270,7 +270,7 @@ const _sfc_main$2 = {
     window.removeEventListener("scroll", this.onscroll);
   }
 };
-function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Link = resolveComponent("Link");
   const _component_NavIcons = resolveComponent("NavIcons");
   const _component_NavMenu = resolveComponent("NavMenu");
@@ -310,20 +310,20 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, null, _parent));
   _push(`<!--]-->`);
 }
-const _sfc_setup$2 = _sfc_main$2.setup;
-_sfc_main$2.setup = (props, ctx) => {
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Navbar.vue");
-  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const Navbar = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$2], ["__scopeId", "data-v-051fc6cc"]]);
-const _sfc_main$1 = {
+const Navbar = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$3], ["__scopeId", "data-v-051fc6cc"]]);
+const _sfc_main$2 = {
   name: "Footer",
   components: {
     Link
   }
 };
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Link = resolveComponent("Link");
   const _component_font_awesome_icon = resolveComponent("font-awesome-icon");
   _push(`<footer${ssrRenderAttrs(mergeProps({ class: "bg-primary text-white" }, _attrs))}><div class="container p-5"><div class="row row-cols-2 row-cols-lg-3"><div class="col logo-font d-none d-md-block"><h3 class="text-nowrap">Dear K.</h3><p>Dress to impress with us.</p></div><div class="col text-uppercase d-flex flex-column"><p class="fw-semibold">Support</p>`);
@@ -435,29 +435,69 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   }, _parent));
   _push(`</div></div></div></div></footer>`);
 }
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Footer.vue");
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+};
+const Footer = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$2]]);
+const DeclarationModal_vue_vue_type_style_index_0_scoped_07c03bbb_lang = "";
+const _sfc_main$1 = {
+  name: "DeclarationModal",
+  data() {
+    return {
+      isOpenModal: true
+    };
+  },
+  components: {
+    Link
+  },
+  methods: {
+    closeModal() {
+      this.isOpenModal = false;
+      sessionStorage.setItem("hasReadDeclearation", "true");
+    }
+  },
+  created() {
+    this.isOpenModal = sessionStorage.getItem("hasReadDeclearation") != "true";
+  }
+};
+function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_font_awesome_icon = resolveComponent("font-awesome-icon");
+  _push(`<div${ssrRenderAttrs(mergeProps({
+    class: ["message-modal position-fixed top-0 start-0 w-100 h-100 bg-black", !$data.isOpenModal && "invisible"],
+    style: { "--bs-bg-opacity": ".5" }
+  }, _attrs))} data-v-07c03bbb><div class="${ssrRenderClass([$data.isOpenModal && "active", "message-modal-content position-absolute top-50 start-50 px-3 py-4 bg-light d-flex flex-column"])}" data-v-07c03bbb><div class="text-end" data-v-07c03bbb><button type="button" class="link-primary bg-light border-0 mb-4" data-v-07c03bbb>`);
+  _push(ssrRenderComponent(_component_font_awesome_icon, { icon: ["fas", "x"] }, null, _parent));
+  _push(`</button></div><div class="message px-3 py-3 flex-grow overflow-y-auto" data-v-07c03bbb><p data-v-07c03bbb>Welcome to Dear K!</p><p data-v-07c03bbb> This website is a demonstration created solely for showcasing my skills as a web developer. It is not a real online shop, and no actual purchases can be made. The products and prices displayed are for illustrative purposes only. </p><p data-v-07c03bbb> Feel free to explore the website, create account, add items to your cart, and proceed to the checkout to see the functionality in action. We suggest you entering random data for testing. However, please provide a valid email address for verification purposes during the registration process. You can use a disposable or temporary email address to ensure your privacy and security. </p><p data-v-07c03bbb> Some images used on this website may have been sourced from the internet for visual representation. If you believe any content used here infringes upon copyright or contains inappropriate material, kindly contact me so that I can address the concern promptly. </p><p data-v-07c03bbb> Thank you for visiting, and I hope you enjoy browsing my website! </p><p data-v-07c03bbb> Yuki </p></div><div class="d-grid gap-2 mt-5" data-v-07c03bbb><button type="button" class="btn btn-secondary py-2 text-white rounded-0" data-v-07c03bbb>Start Exploring</button></div></div></div>`);
+}
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Footer.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/DeclarationModal.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const Footer = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1]]);
+const DeclarationModal = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-07c03bbb"]]);
 const _sfc_main = {
   name: "Layout",
   components: {
     Announcement,
     Navbar,
-    Footer
+    Footer,
+    DeclarationModal
   },
   mounted() {
     AOS.init();
   }
 };
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_DeclarationModal = resolveComponent("DeclarationModal");
   const _component_Announcement = resolveComponent("Announcement");
   const _component_Navbar = resolveComponent("Navbar");
   const _component_Footer = resolveComponent("Footer");
   _push(`<!--[-->`);
+  _push(ssrRenderComponent(_component_DeclarationModal, null, null, _parent));
   _push(ssrRenderComponent(_component_Announcement, null, null, _parent));
   _push(ssrRenderComponent(_component_Navbar, null, null, _parent));
   _push(`<div class="flex-grow-1 d-flex flex-column">`);
