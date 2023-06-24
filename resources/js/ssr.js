@@ -20,10 +20,11 @@ createServer(page =>
     render: renderToString,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ App, props, plugin }) {
-      return createSSRApp({
+      const application =  createSSRApp({
         render: () => h(App, props),
       }).use(plugin)
-      .component('font-awesome-icon', FontAwesomeIcon)
+      .component('font-awesome-icon', FontAwesomeIcon);
+      return application;
     },
   }),
 )

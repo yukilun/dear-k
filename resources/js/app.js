@@ -16,9 +16,11 @@ library.add(faUser, faCartShopping, faBars, faShoppingBag, faX, faChevronUp, faC
 createInertiaApp({
   resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
   setup({ el, App, props, plugin }) {
-    createSSRApp({ render: () => h(App, props) })
+    const application = createSSRApp({ render: () => h(App, props) })
       .use(plugin)
       .component('font-awesome-icon', FontAwesomeIcon)
-      .mount(el)
+      .mount(el);
+      delete el.dataset.page;
+      return application;
   },
 })
