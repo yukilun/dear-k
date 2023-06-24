@@ -194,7 +194,7 @@ export default {
                                 </div>
 
                                 <div class="row g-3 mb-3">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <div class="form-floating">
                                             <Field type="text" class="form-control"
                                                 :class="(errors.shipping_city || form?.errors.shipping_city) && 'is-invalid'"
@@ -205,14 +205,15 @@ export default {
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4 h-100">
+                                    <div class="col-lg-6 h-100">
                                         <div class="form-floating">
                                             <Field as="select" name="shipping_province_code" id="shipping_province_code"
                                                 class="form-select h-100" @change="changeShippingProvince"
                                                 :class="(errors.shipping_province_code || form?.errors.shipping_province_code) && 'is-invalid'">
                                                 <option disabled></option>
-                                                <option v-for="province in provinces" :value="province.code">{{
-                                                    province.code }}</option>
+                                                <option v-for="province in provinces" :value="province.code">
+                                                    {{ province.code }} - {{ province.province_name }}
+                                                </option>
                                             </Field>
                                             <label for="shipping_province_code" class="form-label">Province</label>
                                             <div class="invalid-feedback">{{ errors.shipping_province_code ||
@@ -220,7 +221,7 @@ export default {
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <div class="form-floating">
                                             <Field type="text" class="form-control"
                                                 :class="(errors.shipping_postal_code || form?.errors.shipping_postal_code) && 'is-invalid'"
@@ -233,17 +234,19 @@ export default {
                                             }}</div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="form-floating">
-                                    <Field as="select" name="shipping_country" id="shipping_country"
-                                        class="form-select h-100"
-                                        :class="(errors.shipping_country || form?.errors.shipping_country) && 'is-invalid'">
-                                        <option selected>Canada</option>
-                                    </Field>
-                                    <label for="shipping_country" class="form-label">Country</label>
-                                    <div class="invalid-feedback">{{ errors.shipping_country ||
-                                        form?.errors.shipping_country }}</div>
+                                    <div class="col-lg-6">
+                                        <div class="form-floating">
+                                            <Field as="select" name="shipping_country" id="shipping_country"
+                                                class="form-select h-100"
+                                                :class="(errors.shipping_country || form?.errors.shipping_country) && 'is-invalid'">
+                                                <option selected>Canada</option>
+                                            </Field>
+                                            <label for="shipping_country" class="form-label">Country</label>
+                                            <div class="invalid-feedback">{{ errors.shipping_country ||
+                                                form?.errors.shipping_country }}</div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!--------- BILLING DETAIL ------------>
@@ -293,7 +296,7 @@ export default {
                                     </div>
 
                                     <div class="row g-3 mb-3">
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             <div class="form-floating">
                                                 <Field type="text" class="form-control"
                                                     :class="(errors.billing_city || form?.errors.billing_city) && 'is-invalid'"
@@ -304,14 +307,15 @@ export default {
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-4 h-100">
+                                        <div class="col-lg-6 h-100">
                                             <div class="form-floating">
                                                 <Field as="select" name="billing_province_code" id="billing_province_code"
                                                     class="form-select h-100" @change="changeShippingProvince"
                                                     :class="(errors.billing_province_code || form?.errors.billing_province_code) && 'is-invalid'">
                                                     <option disabled></option>
-                                                    <option v-for="province in provinces" :value="province.code">{{
-                                                        province.code }}</option>
+                                                    <option v-for="province in provinces" :value="province.code">
+                                                        {{ province.code }} - {{ province.province_name }}
+                                                    </option>
                                                 </Field>
                                                 <label for="billing_province_code" class="form-label">Province</label>
                                                 <div class="invalid-feedback">{{ errors.billing_province_code ||
@@ -319,7 +323,7 @@ export default {
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             <div class="form-floating">
                                                 <Field type="text" class="form-control"
                                                     :class="(errors.billing_postal_code || form?.errors.billing_postal_code) && 'is-invalid'"
@@ -332,19 +336,20 @@ export default {
                                                 }}</div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-floating">
-                                        <Field as="select" name="billing_country" id="billing_country"
-                                            class="form-select h-100"
-                                            :class="(errors.billing_country || form?.errors.billing_country) && 'is-invalid'">
-                                            <option selected>Canada</option>
-                                        </Field>
-                                        <label for="billing_country" class="form-label">Country</label>
-                                        <div class="invalid-feedback">{{ errors.billing_country ||
-                                            form?.errors.billing_country }}</div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating">
+                                                <Field as="select" name="billing_country" id="billing_country"
+                                                    class="form-select h-100"
+                                                    :class="(errors.billing_country || form?.errors.billing_country) && 'is-invalid'">
+                                                    <option selected>Canada</option>
+                                                </Field>
+                                                <label for="billing_country" class="form-label">Country</label>
+                                                <div class="invalid-feedback">{{ errors.billing_country ||
+                                                    form?.errors.billing_country }}</div>
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
 
                                 <div class="d-grid d-md-block">
@@ -354,7 +359,8 @@ export default {
                                 </div>
                                 <p class="text-black-50 mt-3">
                                     * Once you place the order, the items will be reserved for you.
-                                    However, you must complete the payment within 3 hours or otherwise your order would be cancelled automatically.
+                                    However, you must complete the payment within 3 hours or otherwise your order would be
+                                    cancelled automatically.
                                 </p>
                             </Form>
 
