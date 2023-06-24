@@ -1,5 +1,5 @@
-import { _ as _export_sfc, L as Layout } from "./Layout-ef8a87b0.js";
-import { P as ProductCard } from "./ProductCard-9589f52d.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-cbfb21e4.js";
+import { P as ProductCard } from "./ProductCard-8ff2b3a2.js";
 import { Link } from "@inertiajs/vue3";
 import { resolveComponent, mergeProps, withCtx, createVNode, createTextVNode, toDisplayString, useSSRContext, openBlock, createBlock } from "vue";
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrRenderClass, ssrInterpolate, ssrRenderAttr } from "vue/server-renderer";

@@ -1,5 +1,5 @@
-import { T as TextContainer } from "./TextContainer-d7b1c3ec.js";
-import { _ as _export_sfc, L as Layout } from "./Layout-ef8a87b0.js";
+import { T as TextContainer } from "./TextContainer-21bfb38b.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-cbfb21e4.js";
 import { resolveComponent, withCtx, createVNode, useSSRContext } from "vue";
 import { ssrRenderComponent } from "vue/server-renderer";
 import "@inertiajs/vue3";

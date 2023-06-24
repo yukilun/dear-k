@@ -1,4 +1,4 @@
-import { _ as _export_sfc, L as Layout } from "./Layout-ef8a87b0.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-cbfb21e4.js";
 import { Link } from "@inertiajs/vue3";
 import { resolveComponent, withCtx, createTextVNode, createVNode, toDisplayString, useSSRContext } from "vue";
 import { ssrRenderComponent, ssrInterpolate } from "vue/server-renderer";

@@ -14,11 +14,13 @@ export default {
     methods: {
         closeModal() {
             this.isOpenModal = false;
-            sessionStorage.setItem('hasReadDeclearation', 'true');
+            localStorage.setItem('hasReadDeclearationAt', new Date().toISOString());
         }
     },
     created() {
-        this.isOpenModal = sessionStorage.getItem('hasReadDeclearation') != 'true';
+        // show open for first visit user or user visited our site more than 1 week ago
+        this.isOpenModal = !localStorage.getItem('hasReadDeclearationAt') 
+                            && new Date(localStorage.getItem('hasReadDeclearationAt')) < new Date() - (1 * 24 * 60 * 60 * 1000);
     }
 }
 </script>
@@ -42,12 +44,14 @@ export default {
                     It is not a real online shop, and no actual purchases can be made.
                     The products and prices displayed are for illustrative purposes only.
                 </p>
-                <p>
+                <p class="mb-1">
                     Feel free to explore the website, create account, add items to your cart, and proceed to the checkout
                     to see the functionality in action. We suggest you entering random data for testing.
                     However, please provide a valid email address for verification purposes during the registration process.
                     You can use a disposable or temporary email address to ensure your privacy and security.
+                    Also, please use the following card number for successful payment:
                 </p>
+                <p class="text-center fs-6 text-primary"><code>4242 4242 4242 4242</code></p>
                 <p>
                     Some images used on this website may have been sourced from the internet for visual representation.
                     If you believe any content used here infringes upon copyright or contains inappropriate material,

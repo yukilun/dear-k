@@ -442,7 +442,7 @@ _sfc_main$2.setup = (props, ctx) => {
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
 const Footer = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$2]]);
-const DeclarationModal_vue_vue_type_style_index_0_scoped_07c03bbb_lang = "";
+const DeclarationModal_vue_vue_type_style_index_0_scoped_78c6ba03_lang = "";
 const _sfc_main$1 = {
   name: "DeclarationModal",
   data() {
@@ -456,11 +456,11 @@ const _sfc_main$1 = {
   methods: {
     closeModal() {
       this.isOpenModal = false;
-      sessionStorage.setItem("hasReadDeclearation", "true");
+      localStorage.setItem("hasReadDeclearationAt", (/* @__PURE__ */ new Date()).toISOString());
     }
   },
   created() {
-    this.isOpenModal = sessionStorage.getItem("hasReadDeclearation") != "true";
+    this.isOpenModal = !localStorage.getItem("hasReadDeclearationAt") && new Date(localStorage.getItem("hasReadDeclearationAt")) < /* @__PURE__ */ new Date() - 1 * 24 * 60 * 60 * 1e3;
   }
 };
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
@@ -468,9 +468,9 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   _push(`<div${ssrRenderAttrs(mergeProps({
     class: ["message-modal position-fixed top-0 start-0 w-100 h-100 bg-black", !$data.isOpenModal && "invisible"],
     style: { "--bs-bg-opacity": ".5" }
-  }, _attrs))} data-v-07c03bbb><div class="${ssrRenderClass([$data.isOpenModal && "active", "message-modal-content position-absolute top-50 start-50 px-3 py-4 bg-light d-flex flex-column"])}" data-v-07c03bbb><div class="text-end" data-v-07c03bbb><button type="button" class="link-primary bg-light border-0 mb-4" data-v-07c03bbb>`);
+  }, _attrs))} data-v-78c6ba03><div class="${ssrRenderClass([$data.isOpenModal && "active", "message-modal-content position-absolute top-50 start-50 px-3 py-4 bg-light d-flex flex-column"])}" data-v-78c6ba03><div class="text-end" data-v-78c6ba03><button type="button" class="link-primary bg-light border-0 mb-4" data-v-78c6ba03>`);
   _push(ssrRenderComponent(_component_font_awesome_icon, { icon: ["fas", "x"] }, null, _parent));
-  _push(`</button></div><div class="message px-3 py-3 flex-grow overflow-y-auto" data-v-07c03bbb><p data-v-07c03bbb>Welcome to Dear K!</p><p data-v-07c03bbb> This website is a demonstration created solely for showcasing my skills as a web developer. It is not a real online shop, and no actual purchases can be made. The products and prices displayed are for illustrative purposes only. </p><p data-v-07c03bbb> Feel free to explore the website, create account, add items to your cart, and proceed to the checkout to see the functionality in action. We suggest you entering random data for testing. However, please provide a valid email address for verification purposes during the registration process. You can use a disposable or temporary email address to ensure your privacy and security. </p><p data-v-07c03bbb> Some images used on this website may have been sourced from the internet for visual representation. If you believe any content used here infringes upon copyright or contains inappropriate material, kindly contact me so that I can address the concern promptly. </p><p data-v-07c03bbb> Thank you for visiting, and I hope you enjoy browsing my website! </p><p data-v-07c03bbb> Yuki </p></div><div class="d-grid gap-2 mt-5" data-v-07c03bbb><button type="button" class="btn btn-secondary py-2 text-white rounded-0" data-v-07c03bbb>Start Exploring</button></div></div></div>`);
+  _push(`</button></div><div class="message px-3 py-3 flex-grow overflow-y-auto" data-v-78c6ba03><p data-v-78c6ba03>Welcome to Dear K!</p><p data-v-78c6ba03> This website is a demonstration created solely for showcasing my skills as a web developer. It is not a real online shop, and no actual purchases can be made. The products and prices displayed are for illustrative purposes only. </p><p class="mb-1" data-v-78c6ba03> Feel free to explore the website, create account, add items to your cart, and proceed to the checkout to see the functionality in action. We suggest you entering random data for testing. However, please provide a valid email address for verification purposes during the registration process. You can use a disposable or temporary email address to ensure your privacy and security. Also, please use the following card number for successful payment: </p><p class="text-center fs-6 text-primary" data-v-78c6ba03><code data-v-78c6ba03>4242 4242 4242 4242</code></p><p data-v-78c6ba03> Some images used on this website may have been sourced from the internet for visual representation. If you believe any content used here infringes upon copyright or contains inappropriate material, kindly contact me so that I can address the concern promptly. </p><p data-v-78c6ba03> Thank you for visiting, and I hope you enjoy browsing my website! </p><p data-v-78c6ba03> Yuki </p></div><div class="d-grid gap-2 mt-5" data-v-78c6ba03><button type="button" class="btn btn-secondary py-2 text-white rounded-0" data-v-78c6ba03>Start Exploring</button></div></div></div>`);
 }
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
@@ -478,7 +478,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/DeclarationModal.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const DeclarationModal = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-07c03bbb"]]);
+const DeclarationModal = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-78c6ba03"]]);
 const _sfc_main = {
   name: "Layout",
   components: {
