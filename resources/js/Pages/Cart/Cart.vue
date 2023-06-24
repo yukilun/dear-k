@@ -17,11 +17,6 @@ export default {
     },
     created() {
         this.page = usePage();
-    },
-    methods: {
-        checkout() {
-            router.get('')
-        }
     }
 }
 </script>
@@ -67,7 +62,7 @@ export default {
                     <div class="d-grid">
                         <Link href="/checkout" v-if="canCheckout" class="btn btn-primary btn-lg rounded-0 text-white">
                                 <small><font-awesome-icon :icon="['fas', 'lock']"/></small>
-                                &nbsp; Process to Checkout
+                                &nbsp; Proceed to Checkout
                         </Link>
                         <button v-else class="btn btn-primary btn-lg rounded-0 text-white" :disabled="true">
                             Unable to Checkout
