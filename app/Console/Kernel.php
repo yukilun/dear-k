@@ -20,7 +20,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
             $orders = Order::where('status', OrderStatus::Unpaid)
-                            ->where('created_at' , '<', Carbon::now()->subMinutes(5))
+                            ->where('created_at' , '<', Carbon::now()->subHours(3))
                             ->get();
             foreach($orders as &$order) {
                 $orderItems = $order->orderItems;
@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
                 $order->status = OrderStatus::Cancelled->value;
                 $order->save();
             }
-        })->everyMinute();
+        })->everyFiveMinutes();
     }
 
     /**
