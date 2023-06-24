@@ -45,7 +45,7 @@ Route::prefix('/cart')->name('cart.')->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::post('/profile', [ProfileController::class, 'store'])->name('profile.update');
+    Route::put('/profile', [ProfileController::class, 'store'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::prefix('/checkout')->name('checkout.')->group(function() {
         Route::get('/', [CheckoutController::class, 'index'])->name('index');
