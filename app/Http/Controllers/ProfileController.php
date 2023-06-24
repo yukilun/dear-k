@@ -19,6 +19,7 @@ class ProfileController extends Controller
         return Inertia::render('Profile/ProfileEdit', [
             'user' => $user,
             'provinces' => $provinces,
+            'message' => session('message')
         ]);
     }
 
@@ -72,7 +73,11 @@ class ProfileController extends Controller
 
         $customer->save();
 
-        return redirect()->route('profile.edit');
+        return redirect()->route('profile.edit')
+                        ->with('message', [
+                            'type'=> 'success',
+                            'message' => 'Profile has been updated!'
+                        ]);
     }
 
     // DELETE CUSTOMER (USER)

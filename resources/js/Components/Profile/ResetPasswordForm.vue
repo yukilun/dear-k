@@ -18,7 +18,6 @@ export default {
     },
     data: () => ({
         form: null,
-        status: null
     }),
     methods: {
         handleSubmit(values, { resetForm }) {
@@ -74,8 +73,6 @@ export default {
             <div class="invalid-feedback">{{ errors.password_confirmation ||
                 form?.errors.password_confirmation }}</div>
         </div>
-
-        <p v-if="status === 'success'" class="mb-4 text-success">Password has been updated successfully!</p>
 
         <div class="d-flex gap-3 mt-4">
             <!-- <button type="reset" class="btn btn-secondary rounded-0 text-white" :class="form?.processing && 'opacity-25'"

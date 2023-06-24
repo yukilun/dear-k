@@ -2,7 +2,7 @@
 import { Field, Form } from 'vee-validate';
 import * as yup from 'yup';
 import { vMaska } from "maska";
-import { useForm } from '@inertiajs/vue3';
+import { router, useForm } from '@inertiajs/vue3';
 
 export default {
     name: 'UpdateProfileForm',
@@ -31,12 +31,21 @@ export default {
         handleSubmit(values) {
             const unmaskedValues = { ...values, phone: this.phone.unmasked, postal_code: this.postal_code.unmasked.toUpperCase() };
             this.form = useForm(unmaskedValues);
-            this.form.post('/profile', {
+            this.form.put('/profile', {
                 preserveScroll: true,
-                onSuccess: () => {
-                    this.status = 'success'
-                }
             });
+        },
+        customResetForm() {
+            this.$refs.myForm.setValues({
+                name: this.user.name,
+                email: this.user.email,
+                phone: '1' + this.user.customer.phone,
+                street_address: this.user.customer.street_address,
+                city: this.user.customer.city,
+                province_code: this.user.customer.province_code,
+                postal_code: this.user.customer.postal_code,
+                country: 'Canada'
+            })
         }
     },
     created() {
@@ -69,7 +78,8 @@ export default {
 </script>
 
 <template>
-    <Form @submit="handleSubmit" :validation-schema="schema" :initial-values="initialValues" v-slot="{ errors }">
+    <Form @submit="handleSubmit" :validation-schema="schema" :initial-values="initialValues" v-slot="{ errors }"
+        ref="myForm">
         <p class="fs-5 fw-semi-bold">Profile Information</p>
         <p>You can update your profile information below.</p>
 
@@ -82,7 +92,7 @@ export default {
 
         <div class="form-floating mb-3">
             <Field type="email" class="form-control" :class="(errors.email || form?.errors.email) && 'is-invalid'"
-                name="email" id="email" placeholder="Email" autocomplete="email"/>
+                name="email" id="email" placeholder="Email" autocomplete="email" />
             <label for="email" class="form-label">Email</label>
             <div class="invalid-feedback">{{ errors.email || form?.errors.email }}</div>
         </div>
@@ -145,11 +155,9 @@ export default {
             <div class="invalid-feedback">{{ errors.country || form?.errors.country }}</div>
         </div>
 
-        <p v-if="status === 'success'" class="mb-4 text-success">Profile has been updated successfully!</p>
-
         <div class="d-flex gap-3 mt-4">
-            <button type="reset" class="btn btn-secondary rounded-0 text-white" :class="form?.processing && 'opacity-25'"
-                :disabled="form?.processing">
+            <button type="button" @click="customResetForm" class="btn btn-secondary rounded-0 text-white"
+                :class="form?.processing && 'opacity-25'" :disabled="form?.processing">
                 Cancel
             </button>
             <button type="submit" class="btn btn-primary rounded-0 text-white" :class="form?.processing && 'opacity-25'"
