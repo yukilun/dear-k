@@ -20,7 +20,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
             $orders = Order::where('status', OrderStatus::Unpaid)
-                            ->where('created_at' , '<', Carbon::now()->subMinutes(30))
+                            ->where('created_at' , '<', Carbon::now()->subMinutes(5))
                             ->get();
             foreach($orders as &$order) {
                 $orderItems = $order->orderItems;
