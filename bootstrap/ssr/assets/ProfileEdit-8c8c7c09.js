@@ -4,10 +4,10 @@ import { Field, Form } from "vee-validate";
 import * as yup from "yup";
 import { vMaska } from "maska";
 import { useForm } from "@inertiajs/vue3";
-import { resolveComponent, resolveDirective, mergeProps, withCtx, createVNode, openBlock, createBlock, Fragment, renderList, toDisplayString, withDirectives, createCommentVNode, useSSRContext, createTextVNode } from "vue";
-import { ssrRenderComponent, ssrInterpolate, ssrGetDirectiveProps, ssrRenderList, ssrRenderAttr, ssrRenderClass, ssrIncludeBooleanAttr } from "vue/server-renderer";
+import { resolveComponent, resolveDirective, mergeProps, withCtx, createVNode, openBlock, createBlock, Fragment, renderList, toDisplayString, withDirectives, useSSRContext, createTextVNode, createCommentVNode } from "vue";
+import { ssrRenderComponent, ssrInterpolate, ssrGetDirectiveProps, ssrRenderList, ssrRenderAttr, ssrRenderClass, ssrIncludeBooleanAttr, ssrRenderAttrs, ssrRenderStyle } from "vue/server-renderer";
 import "aos";
-const _sfc_main$3 = {
+const _sfc_main$4 = {
   name: "UpdateProfileForm",
   components: {
     Field,
@@ -34,11 +34,20 @@ const _sfc_main$3 = {
     handleSubmit(values) {
       const unmaskedValues = { ...values, phone: this.phone.unmasked, postal_code: this.postal_code.unmasked.toUpperCase() };
       this.form = useForm(unmaskedValues);
-      this.form.post("/profile", {
-        preserveScroll: true,
-        onSuccess: () => {
-          this.status = "success";
-        }
+      this.form.put("/profile", {
+        preserveScroll: true
+      });
+    },
+    customResetForm() {
+      this.$refs.myForm.setValues({
+        name: this.user.name,
+        email: this.user.email,
+        phone: "1" + this.user.customer.phone,
+        street_address: this.user.customer.street_address,
+        city: this.user.customer.city,
+        province_code: this.user.customer.province_code,
+        postal_code: this.user.customer.postal_code,
+        country: "Canada"
       });
     }
   },
@@ -69,14 +78,15 @@ const _sfc_main$3 = {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
   }
 };
-function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Form = resolveComponent("Form");
   const _component_Field = resolveComponent("Field");
   const _directive_maska = resolveDirective("maska");
   _push(ssrRenderComponent(_component_Form, mergeProps({
     onSubmit: $options.handleSubmit,
     "validation-schema": _ctx.schema,
-    "initial-values": _ctx.initialValues
+    "initial-values": _ctx.initialValues,
+    ref: "myForm"
   }, _attrs), {
     default: withCtx(({ errors }, _push2, _parent2, _scopeId) => {
       var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _A, _B, _C, _D, _E, _F, _G, _H, _I, _J, _K, _L, _M, _N;
@@ -118,7 +128,7 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           placeholder: "Street Address",
           maxlength: "100"
         }, null, _parent2, _scopeId));
-        _push2(`<label for="street_address" class="form-label"${_scopeId}>Street Address</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.street_address || ((_h = _ctx.form) == null ? void 0 : _h.errors.street_address))}</div></div><div class="row g-3 mb-3"${_scopeId}><div class="col-md-4"${_scopeId}><div class="form-floating"${_scopeId}>`);
+        _push2(`<label for="street_address" class="form-label"${_scopeId}>Street Address</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.street_address || ((_h = _ctx.form) == null ? void 0 : _h.errors.street_address))}</div></div><div class="row g-3 mb-3"${_scopeId}><div class="col-md-6"${_scopeId}><div class="form-floating"${_scopeId}>`);
         _push2(ssrRenderComponent(_component_Field, {
           type: "text",
           class: ["form-control", (errors.city || ((_i = _ctx.form) == null ? void 0 : _i.errors.city)) && "is-invalid"],
@@ -127,7 +137,7 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           placeholder: "City",
           max: "50"
         }, null, _parent2, _scopeId));
-        _push2(`<label for="city" class="form-label"${_scopeId}>City</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.city || ((_j = _ctx.form) == null ? void 0 : _j.errors.city))}</div></div></div><div class="col-md-4 h-100"${_scopeId}><div class="form-floating"${_scopeId}>`);
+        _push2(`<label for="city" class="form-label"${_scopeId}>City</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.city || ((_j = _ctx.form) == null ? void 0 : _j.errors.city))}</div></div></div><div class="col-md-6 h-100"${_scopeId}><div class="form-floating"${_scopeId}>`);
         _push2(ssrRenderComponent(_component_Field, {
           as: "select",
           name: "province_code",
@@ -137,22 +147,22 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           default: withCtx((_, _push3, _parent3, _scopeId2) => {
             if (_push3) {
               _push3(`<option disabled${_scopeId2}></option><!--[-->`);
-              ssrRenderList($props.provinces, ({ code }) => {
-                _push3(`<option${ssrRenderAttr("value", code)}${_scopeId2}>${ssrInterpolate(code)}</option>`);
+              ssrRenderList($props.provinces, ({ code, province_name }) => {
+                _push3(`<option${ssrRenderAttr("value", code)}${_scopeId2}>${ssrInterpolate(code)} - ${ssrInterpolate(province_name)}</option>`);
               });
               _push3(`<!--]-->`);
             } else {
               return [
                 createVNode("option", { disabled: "" }),
-                (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code }) => {
-                  return openBlock(), createBlock("option", { value: code }, toDisplayString(code), 9, ["value"]);
+                (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code, province_name }) => {
+                  return openBlock(), createBlock("option", { value: code }, toDisplayString(code) + " - " + toDisplayString(province_name), 9, ["value"]);
                 }), 256))
               ];
             }
           }),
           _: 2
         }, _parent2, _scopeId));
-        _push2(`<label for="province_code" class="form-label"${_scopeId}>Province</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.province_code || ((_l = _ctx.form) == null ? void 0 : _l.errors.province_code))}</div></div></div><div class="col-md-4"${_scopeId}><div class="form-floating"${_scopeId}>`);
+        _push2(`<label for="province_code" class="form-label"${_scopeId}>Province</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.province_code || ((_l = _ctx.form) == null ? void 0 : _l.errors.province_code))}</div></div></div><div class="col-md-6"${_scopeId}><div class="form-floating"${_scopeId}>`);
         _push2(ssrRenderComponent(_component_Field, mergeProps({
           type: "text",
           class: ["form-control", (errors.postal_code || ((_m = _ctx.form) == null ? void 0 : _m.errors.postal_code)) && "is-invalid"],
@@ -161,7 +171,7 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           placeholder: "Postal Code",
           "data-maska": "@#@ #@#"
         }, ssrGetDirectiveProps(_ctx, _directive_maska, _ctx.postal_code)), null, _parent2, _scopeId));
-        _push2(`<label for="postal_code" class="form-label"${_scopeId}>Postal Code</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.postal_code || ((_n = _ctx.form) == null ? void 0 : _n.errors.postal_code))}</div></div></div></div><div class="form-floating"${_scopeId}>`);
+        _push2(`<label for="postal_code" class="form-label"${_scopeId}>Postal Code</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.postal_code || ((_n = _ctx.form) == null ? void 0 : _n.errors.postal_code))}</div></div></div><div class="col-md-6"${_scopeId}><div class="form-floating"${_scopeId}>`);
         _push2(ssrRenderComponent(_component_Field, {
           as: "select",
           name: "country",
@@ -179,13 +189,7 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           }),
           _: 2
         }, _parent2, _scopeId));
-        _push2(`<label for="country" class="form-label"${_scopeId}>Country</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.country || ((_p = _ctx.form) == null ? void 0 : _p.errors.country))}</div></div>`);
-        if (_ctx.status === "success") {
-          _push2(`<p class="mb-4 text-success"${_scopeId}>Profile has been updated successfully!</p>`);
-        } else {
-          _push2(`<!---->`);
-        }
-        _push2(`<div class="d-flex gap-3 mt-4"${_scopeId}><button type="reset" class="${ssrRenderClass([((_q = _ctx.form) == null ? void 0 : _q.processing) && "opacity-25", "btn btn-secondary rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_r = _ctx.form) == null ? void 0 : _r.processing) ? " disabled" : ""}${_scopeId}> Cancel </button><button type="submit" class="${ssrRenderClass([((_s = _ctx.form) == null ? void 0 : _s.processing) && "opacity-25", "btn btn-primary rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_t = _ctx.form) == null ? void 0 : _t.processing) ? " disabled" : ""}${_scopeId}> Update </button></div>`);
+        _push2(`<label for="country" class="form-label"${_scopeId}>Country</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.country || ((_p = _ctx.form) == null ? void 0 : _p.errors.country))}</div></div></div></div><div class="d-flex gap-3 mt-4"${_scopeId}><button type="button" class="${ssrRenderClass([((_q = _ctx.form) == null ? void 0 : _q.processing) && "opacity-25", "btn btn-secondary rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_r = _ctx.form) == null ? void 0 : _r.processing) ? " disabled" : ""}${_scopeId}> Cancel </button><button type="submit" class="${ssrRenderClass([((_s = _ctx.form) == null ? void 0 : _s.processing) && "opacity-25", "btn btn-primary rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_t = _ctx.form) == null ? void 0 : _t.processing) ? " disabled" : ""}${_scopeId}> Update </button></div>`);
       } else {
         return [
           createVNode("p", { class: "fs-5 fw-semi-bold" }, "Profile Information"),
@@ -254,7 +258,7 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
             createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.street_address || ((_B = _ctx.form) == null ? void 0 : _B.errors.street_address)), 1)
           ]),
           createVNode("div", { class: "row g-3 mb-3" }, [
-            createVNode("div", { class: "col-md-4" }, [
+            createVNode("div", { class: "col-md-6" }, [
               createVNode("div", { class: "form-floating" }, [
                 createVNode(_component_Field, {
                   type: "text",
@@ -271,7 +275,7 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                 createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.city || ((_D = _ctx.form) == null ? void 0 : _D.errors.city)), 1)
               ])
             ]),
-            createVNode("div", { class: "col-md-4 h-100" }, [
+            createVNode("div", { class: "col-md-6 h-100" }, [
               createVNode("div", { class: "form-floating" }, [
                 createVNode(_component_Field, {
                   as: "select",
@@ -281,8 +285,8 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                 }, {
                   default: withCtx(() => [
                     createVNode("option", { disabled: "" }),
-                    (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code }) => {
-                      return openBlock(), createBlock("option", { value: code }, toDisplayString(code), 9, ["value"]);
+                    (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code, province_name }) => {
+                      return openBlock(), createBlock("option", { value: code }, toDisplayString(code) + " - " + toDisplayString(province_name), 9, ["value"]);
                     }), 256))
                   ]),
                   _: 2
@@ -294,7 +298,7 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                 createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.province_code || ((_F = _ctx.form) == null ? void 0 : _F.errors.province_code)), 1)
               ])
             ]),
-            createVNode("div", { class: "col-md-4" }, [
+            createVNode("div", { class: "col-md-6" }, [
               createVNode("div", { class: "form-floating" }, [
                 withDirectives(createVNode(_component_Field, {
                   type: "text",
@@ -312,36 +316,35 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
                 }, "Postal Code"),
                 createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.postal_code || ((_H = _ctx.form) == null ? void 0 : _H.errors.postal_code)), 1)
               ])
+            ]),
+            createVNode("div", { class: "col-md-6" }, [
+              createVNode("div", { class: "form-floating" }, [
+                createVNode(_component_Field, {
+                  as: "select",
+                  name: "country",
+                  id: "country",
+                  class: ["form-select h-100", (errors.country || ((_I = _ctx.form) == null ? void 0 : _I.errors.country)) && "is-invalid"]
+                }, {
+                  default: withCtx(() => [
+                    createVNode("option", { selected: "" }, "Canada")
+                  ]),
+                  _: 2
+                }, 1032, ["class"]),
+                createVNode("label", {
+                  for: "country",
+                  class: "form-label"
+                }, "Country"),
+                createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.country || ((_J = _ctx.form) == null ? void 0 : _J.errors.country)), 1)
+              ])
             ])
           ]),
-          createVNode("div", { class: "form-floating" }, [
-            createVNode(_component_Field, {
-              as: "select",
-              name: "country",
-              id: "country",
-              class: ["form-select h-100", (errors.country || ((_I = _ctx.form) == null ? void 0 : _I.errors.country)) && "is-invalid"]
-            }, {
-              default: withCtx(() => [
-                createVNode("option", { selected: "" }, "Canada")
-              ]),
-              _: 2
-            }, 1032, ["class"]),
-            createVNode("label", {
-              for: "country",
-              class: "form-label"
-            }, "Country"),
-            createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.country || ((_J = _ctx.form) == null ? void 0 : _J.errors.country)), 1)
-          ]),
-          _ctx.status === "success" ? (openBlock(), createBlock("p", {
-            key: 0,
-            class: "mb-4 text-success"
-          }, "Profile has been updated successfully!")) : createCommentVNode("", true),
           createVNode("div", { class: "d-flex gap-3 mt-4" }, [
             createVNode("button", {
-              type: "reset",
+              type: "button",
+              onClick: $options.customResetForm,
               class: ["btn btn-secondary rounded-0 text-white", ((_K = _ctx.form) == null ? void 0 : _K.processing) && "opacity-25"],
               disabled: (_L = _ctx.form) == null ? void 0 : _L.processing
-            }, " Cancel ", 10, ["disabled"]),
+            }, " Cancel ", 10, ["onClick", "disabled"]),
             createVNode("button", {
               type: "submit",
               class: ["btn btn-primary rounded-0 text-white", ((_M = _ctx.form) == null ? void 0 : _M.processing) && "opacity-25"],
@@ -354,14 +357,14 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     _: 1
   }, _parent));
 }
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Profile/UpdateProfileForm.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const UpdateProfileForm = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$3]]);
-const _sfc_main$2 = {
+const UpdateProfileForm = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$4]]);
+const _sfc_main$3 = {
   name: "ResetPasswordForm",
   components: {
     Field,
@@ -374,8 +377,7 @@ const _sfc_main$2 = {
     user: Object
   },
   data: () => ({
-    form: null,
-    status: null
+    form: null
   }),
   methods: {
     handleSubmit(values, { resetForm }) {
@@ -401,7 +403,7 @@ const _sfc_main$2 = {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
   }
 };
-function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Form = resolveComponent("Form");
   const _component_Field = resolveComponent("Field");
   _push(ssrRenderComponent(_component_Form, mergeProps({
@@ -438,13 +440,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
           placeholder: "Confirm Password",
           autocomplete: "new-password"
         }, null, _parent2, _scopeId));
-        _push2(`<label for="password_confirmation" class="form-label"${_scopeId}>Confirm Password</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.password_confirmation || ((_f = _ctx.form) == null ? void 0 : _f.errors.password_confirmation))}</div></div>`);
-        if (_ctx.status === "success") {
-          _push2(`<p class="mb-4 text-success"${_scopeId}>Password has been updated successfully!</p>`);
-        } else {
-          _push2(`<!---->`);
-        }
-        _push2(`<div class="d-flex gap-3 mt-4"${_scopeId}><button type="submit" class="${ssrRenderClass([((_g = _ctx.form) == null ? void 0 : _g.processing) && "opacity-25", "btn btn-primary rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_h = _ctx.form) == null ? void 0 : _h.processing) ? " disabled" : ""}${_scopeId}> Reset Password </button></div>`);
+        _push2(`<label for="password_confirmation" class="form-label"${_scopeId}>Confirm Password</label><div class="invalid-feedback"${_scopeId}>${ssrInterpolate(errors.password_confirmation || ((_f = _ctx.form) == null ? void 0 : _f.errors.password_confirmation))}</div></div><div class="d-flex gap-3 mt-4"${_scopeId}><button type="submit" class="${ssrRenderClass([((_g = _ctx.form) == null ? void 0 : _g.processing) && "opacity-25", "btn btn-primary rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_h = _ctx.form) == null ? void 0 : _h.processing) ? " disabled" : ""}${_scopeId}> Reset Password </button></div>`);
       } else {
         return [
           createVNode("p", { class: "fs-5 fw-semi-bold" }, "Reset Password"),
@@ -494,10 +490,6 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
             }, "Confirm Password"),
             createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.password_confirmation || ((_n = _ctx.form) == null ? void 0 : _n.errors.password_confirmation)), 1)
           ]),
-          _ctx.status === "success" ? (openBlock(), createBlock("p", {
-            key: 0,
-            class: "mb-4 text-success"
-          }, "Password has been updated successfully!")) : createCommentVNode("", true),
           createVNode("div", { class: "d-flex gap-3 mt-4" }, [
             createVNode("button", {
               type: "submit",
@@ -511,14 +503,14 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     _: 1
   }, _parent));
 }
-const _sfc_setup$2 = _sfc_main$2.setup;
-_sfc_main$2.setup = (props, ctx) => {
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Profile/ResetPasswordForm.vue");
-  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const ResetPasswordForm = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$2]]);
-const _sfc_main$1 = {
+const ResetPasswordForm = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$3]]);
+const _sfc_main$2 = {
   name: "DeleteUserForm",
   components: {
     Field,
@@ -545,7 +537,7 @@ const _sfc_main$1 = {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
   }
 };
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Form = resolveComponent("Form");
   const _component_Field = resolveComponent("Field");
   _push(ssrRenderComponent(_component_Form, mergeProps({
@@ -597,14 +589,82 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     _: 1
   }, _parent));
 }
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Profile/DeleteUserForm.vue");
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+};
+const DeleteUserForm = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$2]]);
+const Toast_vue_vue_type_style_index_0_scoped_b86026f6_lang = "";
+const _sfc_main$1 = {
+  name: "Toast",
+  props: {
+    message: String,
+    type: String
+  },
+  data() {
+    return {
+      isClose: false,
+      isInitial: true,
+      timer: null,
+      remainTime: 3e3
+    };
+  },
+  methods: {
+    closeToast() {
+      this.isClose = true;
+    }
+  },
+  mounted() {
+    this.isInitial = false;
+    this.closeTimer = setInterval(() => {
+      if (this.remainTime > 0) {
+        this.remainTime -= 10;
+      } else {
+        this.closeToast();
+        clearTimeout(this.closeTimer);
+      }
+    }, 10);
+  },
+  unmounted() {
+    if (this.closeTimer)
+      clearTimeout(this.closeTimer);
+  }
+};
+function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_font_awesome_icon = resolveComponent("font-awesome-icon");
+  _push(`<div${ssrRenderAttrs(mergeProps({
+    class: ["myToast", `${$data.isInitial && "initial"} ${$data.isClose && "close"} ${$props.type}`]
+  }, _attrs))} data-v-b86026f6><div class="myToast-container" data-v-b86026f6><div class="myToast-content d-flex gap-3 align-items-center" data-v-b86026f6>`);
+  if ($props.type === "success") {
+    _push(ssrRenderComponent(_component_font_awesome_icon, {
+      class: "fs-3",
+      icon: ["fa", "circle-check"]
+    }, null, _parent));
+  } else {
+    _push(`<!---->`);
+  }
+  if ($props.type === "failure") {
+    _push(ssrRenderComponent(_component_font_awesome_icon, {
+      class: "fs-3",
+      icon: ["fa", "circle-xmark"]
+    }, null, _parent));
+  } else {
+    _push(`<!---->`);
+  }
+  _push(` ${ssrInterpolate($props.message)}</div><button class="border-0 bg-white link-primary link-underline-opacity-25" data-v-b86026f6>`);
+  _push(ssrRenderComponent(_component_font_awesome_icon, { icon: ["fas", "x"] }, null, _parent));
+  _push(`</button></div><div class="myToast-timer" data-v-b86026f6><div class="myToast-timer-bar" style="${ssrRenderStyle(`width: ${$data.remainTime / 3e3 * 100}% ;`)}" data-v-b86026f6> </div></div></div>`);
+}
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Profile/DeleteUserForm.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Toast.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const DeleteUserForm = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1]]);
-const ProfileEdit_vue_vue_type_style_index_0_scoped_dfe66f4d_lang = "";
+const Toast = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-b86026f6"]]);
+const ProfileEdit_vue_vue_type_style_index_0_scoped_76cf4cdb_lang = "";
 const _sfc_main = {
   name: "ProfileEdit",
   components: {
@@ -612,15 +672,18 @@ const _sfc_main = {
     CustomerLayout,
     UpdateProfileForm,
     ResetPasswordForm,
-    DeleteUserForm
+    DeleteUserForm,
+    Toast
   },
   props: {
     user: Object,
-    provinces: Array
+    provinces: Array,
+    message: Object
   }
 };
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Layout = resolveComponent("Layout");
+  const _component_Toast = resolveComponent("Toast");
   const _component_CustomerLayout = resolveComponent("CustomerLayout");
   const _component_UpdateProfileForm = resolveComponent("UpdateProfileForm");
   const _component_ResetPasswordForm = resolveComponent("ResetPasswordForm");
@@ -628,10 +691,19 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
   _push(ssrRenderComponent(_component_Layout, _attrs, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
+        if ($props.message) {
+          _push2(ssrRenderComponent(_component_Toast, {
+            key: (/* @__PURE__ */ new Date()).toISOString(),
+            type: $props.message.type,
+            message: $props.message.message
+          }, null, _parent2, _scopeId));
+        } else {
+          _push2(`<!---->`);
+        }
         _push2(ssrRenderComponent(_component_CustomerLayout, null, {
           default: withCtx((_2, _push3, _parent3, _scopeId2) => {
             if (_push3) {
-              _push3(`<div class="profile-container d-flex flex-column gap-5" data-v-dfe66f4d${_scopeId2}><p class="fs-4" data-v-dfe66f4d${_scopeId2}>Welcome back, <span class="text-primary" data-v-dfe66f4d${_scopeId2}>${ssrInterpolate($props.user.name)}</span> !</p>`);
+              _push3(`<div class="profile-container d-flex flex-column gap-5" data-v-76cf4cdb${_scopeId2}><p class="fs-4" data-v-76cf4cdb${_scopeId2}>Welcome back, <span class="text-primary" data-v-76cf4cdb${_scopeId2}>${ssrInterpolate($props.user.name)}</span> !</p>`);
               _push3(ssrRenderComponent(_component_UpdateProfileForm, {
                 user: $props.user,
                 provinces: $props.provinces
@@ -661,6 +733,11 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
         }, _parent2, _scopeId));
       } else {
         return [
+          $props.message ? (openBlock(), createBlock(_component_Toast, {
+            key: (/* @__PURE__ */ new Date()).toISOString(),
+            type: $props.message.type,
+            message: $props.message.message
+          }, null, 8, ["type", "message"])) : createCommentVNode("", true),
           createVNode(_component_CustomerLayout, null, {
             default: withCtx(() => [
               createVNode("div", { class: "profile-container d-flex flex-column gap-5" }, [
@@ -691,7 +768,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Profile/ProfileEdit.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const ProfileEdit = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-dfe66f4d"]]);
+const ProfileEdit = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-76cf4cdb"]]);
 export {
   ProfileEdit as default
 };

@@ -467,7 +467,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                 }),
                 _: 2
               }, _parent3, _scopeId2));
-              _push3(`<label for="billing_country" class="form-label"${_scopeId2}>Country</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_country || ((_z = $data.form) == null ? void 0 : _z.errors.billing_country))}</div></div></div><div class="d-grid d-md-block"${_scopeId2}><button type="submit" class="btn btn-primary btn-lg rounded-0 text-white mt-4 px-5"${_scopeId2}> Process to payment </button></div>`);
+              _push3(`<label for="billing_country" class="form-label"${_scopeId2}>Country</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.billing_country || ((_z = $data.form) == null ? void 0 : _z.errors.billing_country))}</div></div></div><div class="d-grid d-md-block"${_scopeId2}><button type="submit" class="btn btn-primary btn-lg rounded-0 text-white mt-4 px-5"${_scopeId2}> Place The Order * </button></div><p class="text-black-50 mt-3"${_scopeId2}> * Once you place the order, the items will be reserved for you. However, you must complete the payment within 3 hours or otherwise your order would be cancelled automatically. </p>`);
             } else {
               return [
                 createVNode("p", { class: "fs-5 fw-semi-bold" }, "Shipping Details"),
@@ -755,8 +755,9 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                   createVNode("button", {
                     type: "submit",
                     class: "btn btn-primary btn-lg rounded-0 text-white mt-4 px-5"
-                  }, " Process to payment ")
-                ])
+                  }, " Place The Order * ")
+                ]),
+                createVNode("p", { class: "text-black-50 mt-3" }, " * Once you place the order, the items will be reserved for you. However, you must complete the payment within 3 hours or otherwise your order would be cancelled automatically. ")
               ];
             }
           }),
@@ -1071,8 +1072,9 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                             createVNode("button", {
                               type: "submit",
                               class: "btn btn-primary btn-lg rounded-0 text-white mt-4 px-5"
-                            }, " Process to payment ")
-                          ])
+                            }, " Place The Order * ")
+                          ]),
+                          createVNode("p", { class: "text-black-50 mt-3" }, " * Once you place the order, the items will be reserved for you. However, you must complete the payment within 3 hours or otherwise your order would be cancelled automatically. ")
                         ];
                       }),
                       _: 1

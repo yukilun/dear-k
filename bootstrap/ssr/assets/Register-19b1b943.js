@@ -131,7 +131,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                 placeholder: "Street Address",
                 maxlength: "100"
               }, null, _parent3, _scopeId2));
-              _push3(`<label for="street_address" class="form-label"${_scopeId2}>Street Address</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.street_address || ((_l = _ctx.form) == null ? void 0 : _l.errors.street_address))}</div></div><div class="row g-3 mb-3"${_scopeId2}><div class="col-md-4"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
+              _push3(`<label for="street_address" class="form-label"${_scopeId2}>Street Address</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.street_address || ((_l = _ctx.form) == null ? void 0 : _l.errors.street_address))}</div></div><div class="row g-3 mb-3"${_scopeId2}><div class="col-md-6"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
               _push3(ssrRenderComponent(_component_Field, {
                 type: "text",
                 class: ["form-control", (errors.city || ((_m = _ctx.form) == null ? void 0 : _m.errors.city)) && "is-invalid"],
@@ -140,7 +140,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                 placeholder: "City",
                 max: "50"
               }, null, _parent3, _scopeId2));
-              _push3(`<label for="city" class="form-label"${_scopeId2}>City</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.city || ((_n = _ctx.form) == null ? void 0 : _n.errors.city))}</div></div></div><div class="col-md-4 h-100"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
+              _push3(`<label for="city" class="form-label"${_scopeId2}>City</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.city || ((_n = _ctx.form) == null ? void 0 : _n.errors.city))}</div></div></div><div class="col-md-6 h-100"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
               _push3(ssrRenderComponent(_component_Field, {
                 as: "select",
                 name: "province_code",
@@ -150,22 +150,22 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                 default: withCtx((_2, _push4, _parent4, _scopeId3) => {
                   if (_push4) {
                     _push4(`<option disabled${_scopeId3}></option><!--[-->`);
-                    ssrRenderList($props.provinces, ({ code }) => {
-                      _push4(`<option${ssrRenderAttr("value", code)}${_scopeId3}>${ssrInterpolate(code)}</option>`);
+                    ssrRenderList($props.provinces, ({ code, province_name }) => {
+                      _push4(`<option${ssrRenderAttr("value", code)}${_scopeId3}>${ssrInterpolate(code)} - ${ssrInterpolate(province_name)}</option>`);
                     });
                     _push4(`<!--]-->`);
                   } else {
                     return [
                       createVNode("option", { disabled: "" }),
-                      (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code }) => {
-                        return openBlock(), createBlock("option", { value: code }, toDisplayString(code), 9, ["value"]);
+                      (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code, province_name }) => {
+                        return openBlock(), createBlock("option", { value: code }, toDisplayString(code) + " - " + toDisplayString(province_name), 9, ["value"]);
                       }), 256))
                     ];
                   }
                 }),
                 _: 2
               }, _parent3, _scopeId2));
-              _push3(`<label for="province_code" class="form-label"${_scopeId2}>Province</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.province_code || ((_p = _ctx.form) == null ? void 0 : _p.errors.province_code))}</div></div></div><div class="col-md-4"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
+              _push3(`<label for="province_code" class="form-label"${_scopeId2}>Province</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.province_code || ((_p = _ctx.form) == null ? void 0 : _p.errors.province_code))}</div></div></div><div class="col-md-6"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
               _push3(ssrRenderComponent(_component_Field, mergeProps({
                 type: "text",
                 class: ["form-control", (errors.postal_code || ((_q = _ctx.form) == null ? void 0 : _q.errors.postal_code)) && "is-invalid"],
@@ -174,7 +174,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                 placeholder: "Postal Code",
                 "data-maska": "@#@ #@#"
               }, ssrGetDirectiveProps(_ctx, _directive_maska, _ctx.postal_code)), null, _parent3, _scopeId2));
-              _push3(`<label for="postal_code" class="form-label"${_scopeId2}>Postal Code</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.postal_code || ((_r = _ctx.form) == null ? void 0 : _r.errors.postal_code))}</div></div></div></div><div class="form-floating"${_scopeId2}>`);
+              _push3(`<label for="postal_code" class="form-label"${_scopeId2}>Postal Code</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.postal_code || ((_r = _ctx.form) == null ? void 0 : _r.errors.postal_code))}</div></div></div><div class="col-md-6"${_scopeId2}><div class="form-floating"${_scopeId2}>`);
               _push3(ssrRenderComponent(_component_Field, {
                 as: "select",
                 name: "country",
@@ -192,7 +192,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                 }),
                 _: 2
               }, _parent3, _scopeId2));
-              _push3(`<label for="country" class="form-label"${_scopeId2}>Country</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.country || ((_t = _ctx.form) == null ? void 0 : _t.errors.country))}</div></div><div class="d-grid mt-5"${_scopeId2}><button type="submit" class="${ssrRenderClass([((_u = _ctx.form) == null ? void 0 : _u.processing) && "opacity-25", "btn btn-primary btn-lg rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_v = _ctx.form) == null ? void 0 : _v.processing) ? " disabled" : ""}${_scopeId2}> Register </button></div>`);
+              _push3(`<label for="country" class="form-label"${_scopeId2}>Country</label><div class="invalid-feedback"${_scopeId2}>${ssrInterpolate(errors.country || ((_t = _ctx.form) == null ? void 0 : _t.errors.country))}</div></div></div></div><div class="d-grid mt-5"${_scopeId2}><button type="submit" class="${ssrRenderClass([((_u = _ctx.form) == null ? void 0 : _u.processing) && "opacity-25", "btn btn-primary btn-lg rounded-0 text-white"])}"${ssrIncludeBooleanAttr((_v = _ctx.form) == null ? void 0 : _v.processing) ? " disabled" : ""}${_scopeId2}> Register </button></div>`);
             } else {
               return [
                 createVNode("div", { class: "form-floating mb-3" }, [
@@ -295,7 +295,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                   createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.street_address || ((_H = _ctx.form) == null ? void 0 : _H.errors.street_address)), 1)
                 ]),
                 createVNode("div", { class: "row g-3 mb-3" }, [
-                  createVNode("div", { class: "col-md-4" }, [
+                  createVNode("div", { class: "col-md-6" }, [
                     createVNode("div", { class: "form-floating" }, [
                       createVNode(_component_Field, {
                         type: "text",
@@ -312,7 +312,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                       createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.city || ((_J = _ctx.form) == null ? void 0 : _J.errors.city)), 1)
                     ])
                   ]),
-                  createVNode("div", { class: "col-md-4 h-100" }, [
+                  createVNode("div", { class: "col-md-6 h-100" }, [
                     createVNode("div", { class: "form-floating" }, [
                       createVNode(_component_Field, {
                         as: "select",
@@ -322,8 +322,8 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                       }, {
                         default: withCtx(() => [
                           createVNode("option", { disabled: "" }),
-                          (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code }) => {
-                            return openBlock(), createBlock("option", { value: code }, toDisplayString(code), 9, ["value"]);
+                          (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code, province_name }) => {
+                            return openBlock(), createBlock("option", { value: code }, toDisplayString(code) + " - " + toDisplayString(province_name), 9, ["value"]);
                           }), 256))
                         ]),
                         _: 2
@@ -335,7 +335,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                       createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.province_code || ((_L = _ctx.form) == null ? void 0 : _L.errors.province_code)), 1)
                     ])
                   ]),
-                  createVNode("div", { class: "col-md-4" }, [
+                  createVNode("div", { class: "col-md-6" }, [
                     createVNode("div", { class: "form-floating" }, [
                       withDirectives(createVNode(_component_Field, {
                         type: "text",
@@ -353,25 +353,27 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                       }, "Postal Code"),
                       createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.postal_code || ((_N = _ctx.form) == null ? void 0 : _N.errors.postal_code)), 1)
                     ])
+                  ]),
+                  createVNode("div", { class: "col-md-6" }, [
+                    createVNode("div", { class: "form-floating" }, [
+                      createVNode(_component_Field, {
+                        as: "select",
+                        name: "country",
+                        id: "country",
+                        class: ["form-select h-100", (errors.country || ((_O = _ctx.form) == null ? void 0 : _O.errors.country)) && "is-invalid"]
+                      }, {
+                        default: withCtx(() => [
+                          createVNode("option", { selected: "" }, "Canada")
+                        ]),
+                        _: 2
+                      }, 1032, ["class"]),
+                      createVNode("label", {
+                        for: "country",
+                        class: "form-label"
+                      }, "Country"),
+                      createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.country || ((_P = _ctx.form) == null ? void 0 : _P.errors.country)), 1)
+                    ])
                   ])
-                ]),
-                createVNode("div", { class: "form-floating" }, [
-                  createVNode(_component_Field, {
-                    as: "select",
-                    name: "country",
-                    id: "country",
-                    class: ["form-select h-100", (errors.country || ((_O = _ctx.form) == null ? void 0 : _O.errors.country)) && "is-invalid"]
-                  }, {
-                    default: withCtx(() => [
-                      createVNode("option", { selected: "" }, "Canada")
-                    ]),
-                    _: 2
-                  }, 1032, ["class"]),
-                  createVNode("label", {
-                    for: "country",
-                    class: "form-label"
-                  }, "Country"),
-                  createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.country || ((_P = _ctx.form) == null ? void 0 : _P.errors.country)), 1)
                 ]),
                 createVNode("div", { class: "d-grid mt-5" }, [
                   createVNode("button", {
@@ -512,7 +514,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                     createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.street_address || ((_l = _ctx.form) == null ? void 0 : _l.errors.street_address)), 1)
                   ]),
                   createVNode("div", { class: "row g-3 mb-3" }, [
-                    createVNode("div", { class: "col-md-4" }, [
+                    createVNode("div", { class: "col-md-6" }, [
                       createVNode("div", { class: "form-floating" }, [
                         createVNode(_component_Field, {
                           type: "text",
@@ -529,7 +531,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                         createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.city || ((_n = _ctx.form) == null ? void 0 : _n.errors.city)), 1)
                       ])
                     ]),
-                    createVNode("div", { class: "col-md-4 h-100" }, [
+                    createVNode("div", { class: "col-md-6 h-100" }, [
                       createVNode("div", { class: "form-floating" }, [
                         createVNode(_component_Field, {
                           as: "select",
@@ -539,8 +541,8 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                         }, {
                           default: withCtx(() => [
                             createVNode("option", { disabled: "" }),
-                            (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code }) => {
-                              return openBlock(), createBlock("option", { value: code }, toDisplayString(code), 9, ["value"]);
+                            (openBlock(true), createBlock(Fragment, null, renderList($props.provinces, ({ code, province_name }) => {
+                              return openBlock(), createBlock("option", { value: code }, toDisplayString(code) + " - " + toDisplayString(province_name), 9, ["value"]);
                             }), 256))
                           ]),
                           _: 2
@@ -552,7 +554,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                         createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.province_code || ((_p = _ctx.form) == null ? void 0 : _p.errors.province_code)), 1)
                       ])
                     ]),
-                    createVNode("div", { class: "col-md-4" }, [
+                    createVNode("div", { class: "col-md-6" }, [
                       createVNode("div", { class: "form-floating" }, [
                         withDirectives(createVNode(_component_Field, {
                           type: "text",
@@ -570,25 +572,27 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                         }, "Postal Code"),
                         createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.postal_code || ((_r = _ctx.form) == null ? void 0 : _r.errors.postal_code)), 1)
                       ])
+                    ]),
+                    createVNode("div", { class: "col-md-6" }, [
+                      createVNode("div", { class: "form-floating" }, [
+                        createVNode(_component_Field, {
+                          as: "select",
+                          name: "country",
+                          id: "country",
+                          class: ["form-select h-100", (errors.country || ((_s = _ctx.form) == null ? void 0 : _s.errors.country)) && "is-invalid"]
+                        }, {
+                          default: withCtx(() => [
+                            createVNode("option", { selected: "" }, "Canada")
+                          ]),
+                          _: 2
+                        }, 1032, ["class"]),
+                        createVNode("label", {
+                          for: "country",
+                          class: "form-label"
+                        }, "Country"),
+                        createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.country || ((_t = _ctx.form) == null ? void 0 : _t.errors.country)), 1)
+                      ])
                     ])
-                  ]),
-                  createVNode("div", { class: "form-floating" }, [
-                    createVNode(_component_Field, {
-                      as: "select",
-                      name: "country",
-                      id: "country",
-                      class: ["form-select h-100", (errors.country || ((_s = _ctx.form) == null ? void 0 : _s.errors.country)) && "is-invalid"]
-                    }, {
-                      default: withCtx(() => [
-                        createVNode("option", { selected: "" }, "Canada")
-                      ]),
-                      _: 2
-                    }, 1032, ["class"]),
-                    createVNode("label", {
-                      for: "country",
-                      class: "form-label"
-                    }, "Country"),
-                    createVNode("div", { class: "invalid-feedback" }, toDisplayString(errors.country || ((_t = _ctx.form) == null ? void 0 : _t.errors.country)), 1)
                   ]),
                   createVNode("div", { class: "d-grid mt-5" }, [
                     createVNode("button", {

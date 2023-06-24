@@ -125,11 +125,6 @@ const _sfc_main = {
   },
   created() {
     this.page = usePage();
-  },
-  methods: {
-    checkout() {
-      router.get("");
-    }
   }
 };
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
@@ -184,13 +179,13 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                 if (_push3) {
                   _push3(`<small${_scopeId2}>`);
                   _push3(ssrRenderComponent(_component_font_awesome_icon, { icon: ["fas", "lock"] }, null, _parent3, _scopeId2));
-                  _push3(`</small>   Process to Checkout `);
+                  _push3(`</small>   Proceed to Checkout `);
                 } else {
                   return [
                     createVNode("small", null, [
                       createVNode(_component_font_awesome_icon, { icon: ["fas", "lock"] })
                     ]),
-                    createTextVNode("   Process to Checkout ")
+                    createTextVNode("   Proceed to Checkout ")
                   ];
                 }
               }),
@@ -266,7 +261,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                       createVNode("small", null, [
                         createVNode(_component_font_awesome_icon, { icon: ["fas", "lock"] })
                       ]),
-                      createTextVNode("   Process to Checkout ")
+                      createTextVNode("   Proceed to Checkout ")
                     ]),
                     _: 1
                   })) : (openBlock(), createBlock("button", {
