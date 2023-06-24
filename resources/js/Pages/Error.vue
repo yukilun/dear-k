@@ -32,7 +32,7 @@ export default {
     <Layout>
         <div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center py-5 m-5">
             <h3>{{ title }}</h3>
-            <p>{{ description }}</p>
+            <p class="mt-3">{{ description }}</p>
             <Link href="/" class="btn btn-primary btn-lg text-white rounded-0 mt-4 px-4">Home</Link>
         </div>
     </Layout>
