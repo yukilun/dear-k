@@ -5,7 +5,7 @@ export default {
     name: "DeclarationModal",
     data() {
         return {
-            isOpenModal: true,
+            isOpenModal: false,
         }
     },
     components: {
@@ -17,7 +17,7 @@ export default {
             localStorage.setItem('hasReadDeclearationAt', new Date().toISOString());
         }
     },
-    created() {
+    mounted() {
         // show open for first visit user or user visited our site more than 1 week ago
         this.isOpenModal = !localStorage.getItem('hasReadDeclearationAt') 
                             && new Date(localStorage.getItem('hasReadDeclearationAt')) < new Date() - (1 * 24 * 60 * 60 * 1000);
