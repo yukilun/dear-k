@@ -1,11 +1,11 @@
-import { _ as _export_sfc, L as Layout } from "./Layout-cbfb21e4.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-e4e7b742.js";
 import { register } from "swiper/element/bundle";
 import { mergeProps, useSSRContext, resolveComponent, withCtx, createVNode } from "vue";
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderList, ssrRenderComponent } from "vue/server-renderer";
-import { F as FeatureProducts } from "./FeatureProducts-5baa3252.js";
+import { F as FeatureProducts } from "./FeatureProducts-3afe3535.js";
 import "@inertiajs/vue3";
 import "aos";
-import "./ProductCard-8ff2b3a2.js";
+import "./ProductCard-f380bf6c.js";
 const Carousel_vue_vue_type_style_index_0_scoped_80d1dee8_lang = "";
 register();
 const _sfc_main$1 = {

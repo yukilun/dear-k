@@ -1,23 +1,22 @@
-import { T as TextContainer } from "./TextContainer-21bfb38b.js";
-import { _ as _export_sfc, L as Layout } from "./Layout-cbfb21e4.js";
+import { T as TextContainer } from "./TextContainer-a623a383.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-e4e7b742.js";
 import { resolveComponent, withCtx, createVNode, useSSRContext } from "vue";
 import { ssrRenderComponent } from "vue/server-renderer";
 import "@inertiajs/vue3";
 import "aos";
 const _sfc_main = {
-  name: "Return",
+  name: "Shipping",
   components: {
     Layout,
     TextContainer
   },
   created() {
-    this.title = "Return";
+    this.title = "Shipping";
     this.paragraphs = [
-      `If you are not satisfied with your purchase, you can return the item(s) within 14 days of receiving them.`,
-      `The item(s) must be unworn, in their original condition, and with all tags attached.`,
-      `To initiate a return, please contact our customer support team with your order details. They will guide you through the return process.`,
-      `Once we receive the returned item(s), we will process the refund within 5-7 business days to your original payment method.`,
-      `Please note that shipping costs for returns are the responsibility of the customer, unless the return is due to a damaged or incorrect item.`
+      `We currently offer free shipping on all orders over $100 within Canada.`,
+      `We use reliable shipping carriers to ensure prompt and secure delivery.`,
+      `Delivery times may vary depending on the destination. Generally, it takes 3-7 business days for orders to arrive after they have been shipped.`,
+      `Please note that any customs duties or taxes imposed by the destination country are the responsibility of the customer.`
     ];
   }
 };
@@ -46,10 +45,10 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Support/Return.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Support/Shipping.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const Return = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
+const Shipping = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 export {
-  Return as default
+  Shipping as default
 };

@@ -1,5 +1,5 @@
 import { Link, router, usePage } from "@inertiajs/vue3";
-import { _ as _export_sfc, L as Layout } from "./Layout-cbfb21e4.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-e4e7b742.js";
 import { resolveComponent, mergeProps, withCtx, createVNode, toDisplayString, useSSRContext, createTextVNode, openBlock, createBlock, createCommentVNode, Fragment, renderList } from "vue";
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrRenderClass, ssrInterpolate, ssrIncludeBooleanAttr, ssrRenderList } from "vue/server-renderer";
 import "aos";

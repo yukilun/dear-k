@@ -1,4 +1,4 @@
-import { _ as _export_sfc, L as Layout } from "./Layout-cbfb21e4.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-e4e7b742.js";
 import { Link, useForm } from "@inertiajs/vue3";
 import { Field, Form } from "vee-validate";
 import * as yup from "yup";

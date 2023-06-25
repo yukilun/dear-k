@@ -1,6 +1,6 @@
 import { mergeProps, useSSRContext, resolveComponent, withCtx, createVNode } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderAttr, ssrRenderComponent } from "vue/server-renderer";
-import { _ as _export_sfc, L as Layout } from "./Layout-cbfb21e4.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-e4e7b742.js";
 import "@inertiajs/vue3";
 import "aos";
 const FaqContainer_vue_vue_type_style_index_0_scoped_a7412228_lang = "";

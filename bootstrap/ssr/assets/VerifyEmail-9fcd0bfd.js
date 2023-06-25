@@ -1,5 +1,5 @@
 import { Link, useForm } from "@inertiajs/vue3";
-import { _ as _export_sfc, L as Layout } from "./Layout-cbfb21e4.js";
+import { _ as _export_sfc, L as Layout } from "./Layout-e4e7b742.js";
 import { resolveComponent, withCtx, createTextVNode, createVNode, openBlock, createBlock, createCommentVNode, withModifiers, useSSRContext } from "vue";
 import { ssrRenderComponent, ssrRenderClass, ssrIncludeBooleanAttr } from "vue/server-renderer";
 import "aos";
