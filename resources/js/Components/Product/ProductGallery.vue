@@ -44,7 +44,7 @@ export default {
             </div>
         </div>
         <div class="col-12 col-lg-9">
-            <swiper-container class="displaySwiper" ref="displaySwiper" :pagination="{ clickable: true }">
+            <swiper-container class="displaySwiper" ref="displaySwiper" :pagination="{ clickable: true }" navigation="true">
                 <swiper-slide v-for="{ image_url }, index in images">
                     <img :src="`/storage/${image_url}`" :alt="index">
                 </swiper-slide>
@@ -54,6 +54,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../../../scss/custom' as *;
 img {
     width: 100%;
     height: 100%;
@@ -75,5 +76,9 @@ img {
     width: 100%;
     aspect-ratio: 3 / 4;
     --swiper-theme-color: white;
+    --swiper-navigation-size: 30px;
+    @include media-breakpoint-up(lg) {
+        --swiper-navigation-size: 0px;
+    }
 }
 </style>

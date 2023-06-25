@@ -218,7 +218,7 @@ _sfc_main$3.setup = (props, ctx) => {
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
 const ProductOptions = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$3], ["__scopeId", "data-v-7b060254"]]);
-const ProductGallery_vue_vue_type_style_index_0_scoped_df1406b1_lang = "";
+const ProductGallery_vue_vue_type_style_index_0_scoped_1fc5c286_lang = "";
 const _sfc_main$2 = {
   name: "ProductGallery",
   props: {
@@ -243,17 +243,17 @@ const _sfc_main$2 = {
 };
 function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_font_awesome_icon = resolveComponent("font-awesome-icon");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "row" }, _attrs))} data-v-df1406b1><div class="col-lg-3 d-none d-lg-block" data-v-df1406b1><div class="d-grid gap-2" data-v-df1406b1><button class="btn btn-light opacity-75 text-black-50 rounded-0 p-0 mb-2" data-v-df1406b1>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "row" }, _attrs))} data-v-1fc5c286><div class="col-lg-3 d-none d-lg-block" data-v-1fc5c286><div class="d-grid gap-2" data-v-1fc5c286><button class="btn btn-light opacity-75 text-black-50 rounded-0 p-0 mb-2" data-v-1fc5c286>`);
   _push(ssrRenderComponent(_component_font_awesome_icon, { icon: ["fas", "chevron-up"] }, null, _parent));
-  _push(`</button></div><swiper-container class="navSwiper" direction="vertical" space-between="5" slides-per-view="auto" data-v-df1406b1><!--[-->`);
+  _push(`</button></div><swiper-container class="navSwiper" direction="vertical" space-between="5" slides-per-view="auto" data-v-1fc5c286><!--[-->`);
   ssrRenderList($props.images, ({ image_url }, index) => {
-    _push(`<swiper-slide data-v-df1406b1><img${ssrRenderAttr("src", `/storage/${image_url}`)}${ssrRenderAttr("alt", index)} data-v-df1406b1></swiper-slide>`);
+    _push(`<swiper-slide data-v-1fc5c286><img${ssrRenderAttr("src", `/storage/${image_url}`)}${ssrRenderAttr("alt", index)} data-v-1fc5c286></swiper-slide>`);
   });
-  _push(`<!--]--></swiper-container><div class="d-grid gap-2" data-v-df1406b1><button class="btn btn-light opacity-75 text-black-50 rounded-0 p-0 mt-2" data-v-df1406b1>`);
+  _push(`<!--]--></swiper-container><div class="d-grid gap-2" data-v-1fc5c286><button class="btn btn-light opacity-75 text-black-50 rounded-0 p-0 mt-2" data-v-1fc5c286>`);
   _push(ssrRenderComponent(_component_font_awesome_icon, { icon: ["fas", "chevron-down"] }, null, _parent));
-  _push(`</button></div></div><div class="col-12 col-lg-9" data-v-df1406b1><swiper-container class="displaySwiper"${ssrRenderAttr("pagination", { clickable: true })} data-v-df1406b1><!--[-->`);
+  _push(`</button></div></div><div class="col-12 col-lg-9" data-v-1fc5c286><swiper-container class="displaySwiper"${ssrRenderAttr("pagination", { clickable: true })} navigation="true" data-v-1fc5c286><!--[-->`);
   ssrRenderList($props.images, ({ image_url }, index) => {
-    _push(`<swiper-slide data-v-df1406b1><img${ssrRenderAttr("src", `/storage/${image_url}`)}${ssrRenderAttr("alt", index)} data-v-df1406b1></swiper-slide>`);
+    _push(`<swiper-slide data-v-1fc5c286><img${ssrRenderAttr("src", `/storage/${image_url}`)}${ssrRenderAttr("alt", index)} data-v-1fc5c286></swiper-slide>`);
   });
   _push(`<!--]--></swiper-container></div></div>`);
 }
@@ -263,9 +263,9 @@ _sfc_main$2.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Product/ProductGallery.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const ProductGallery = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$2], ["__scopeId", "data-v-df1406b1"]]);
+const ProductGallery = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$2], ["__scopeId", "data-v-1fc5c286"]]);
 const _imports_0 = "/build/assets/size_chart-b2f24c14.png";
-const ProductAccordion_vue_vue_type_style_index_0_scoped_9262c8df_lang = "";
+const ProductAccordion_vue_vue_type_style_index_0_scoped_2d3727e6_lang = "";
 const _sfc_main$1 = {
   name: "ProductAccordion",
   props: {
@@ -284,7 +284,7 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   _push(`<div${ssrRenderAttrs(mergeProps({
     class: "accordion accordion-flush",
     id: "product-accordion"
-  }, _attrs))} data-v-9262c8df><div class="accordion-item" data-v-9262c8df><h2 class="accordion-header" data-v-9262c8df><button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" data-v-9262c8df> Description </button></h2><div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#product-accordion" data-v-9262c8df><div class="accordion-body" data-v-9262c8df>${ssrInterpolate($props.description)}</div></div></div><div class="accordion-item" data-v-9262c8df><h2 class="accordion-header" data-v-9262c8df><button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" data-v-9262c8df> Size Chart </button></h2><div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#product-accordion" data-v-9262c8df><div class="accordion-body text-center" data-v-9262c8df><img class="size-chart"${ssrRenderAttr("src", _imports_0)} alt="size chart" data-v-9262c8df></div></div></div><div class="accordion-item" data-v-9262c8df><h2 class="accordion-header" data-v-9262c8df><button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" data-v-9262c8df> Delivery &amp; Returns </button></h2><div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#product-accordion" data-v-9262c8df><div class="accordion-body" data-v-9262c8df><p data-v-9262c8df> We offer free shipping withthin Canada on order over $50. Delivery times typically range from 3 to 7 business days after the order has been processed and shipped. If you&#39;re not completely satisfied with your purchase, we accept returns within 14 days. </p><p data-v-9262c8df>For more details, please visit the `);
+  }, _attrs))} data-v-2d3727e6><div class="accordion-item" data-v-2d3727e6><h2 class="accordion-header" data-v-2d3727e6><button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" data-v-2d3727e6> Description </button></h2><div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#product-accordion" data-v-2d3727e6><div class="accordion-body" data-v-2d3727e6>${ssrInterpolate($props.description)}</div></div></div><div class="accordion-item" data-v-2d3727e6><h2 class="accordion-header" data-v-2d3727e6><button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" data-v-2d3727e6> Size Chart </button></h2><div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#product-accordion" data-v-2d3727e6><div class="accordion-body text-center" data-v-2d3727e6><img class="size-chart"${ssrRenderAttr("src", _imports_0)} alt="size chart" data-v-2d3727e6></div></div></div><div class="accordion-item" data-v-2d3727e6><h2 class="accordion-header" data-v-2d3727e6><button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" data-v-2d3727e6> Delivery &amp; Returns </button></h2><div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#product-accordion" data-v-2d3727e6><div class="accordion-body" data-v-2d3727e6><p data-v-2d3727e6> We offer free shipping within Canada on orders over $100. Delivery times typically range from 3 to 7 business days after the order has been processed and shipped. If you&#39;re not completely satisfied with your purchase, we accept returns within 14 days. </p><p data-v-2d3727e6>For more details, please visit the `);
   _push(ssrRenderComponent(_component_Link, { href: "/shipping" }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -318,7 +318,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/Product/ProductAccordion.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const ProductAccordion = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-9262c8df"]]);
+const ProductAccordion = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-2d3727e6"]]);
 register();
 const _sfc_main = {
   name: "Product",

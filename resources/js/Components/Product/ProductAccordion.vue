@@ -53,7 +53,7 @@ export default {
             <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#product-accordion">
                 <div class="accordion-body">
                     <p>
-                        We offer free shipping withthin Canada on order over $50.
+                        We offer free shipping within Canada on orders over $100.
                         Delivery times typically range from 3 to 7 business days after the order has been processed and
                         shipped.
                         If you're not completely satisfied with your purchase, we accept returns within 14 days.
