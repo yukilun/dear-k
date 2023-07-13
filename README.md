@@ -1,66 +1,22 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Dear K.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Thumbnail for Dear K.](../../../yuki-portfolio/blob/main/public/images/projects/thumbnails/dear-k.png)
 
-## About Laravel
+## Overview
+Dear K. is an e-commerce website that sells Korean fashion items online. The goal of building this website was to learn PHP with the Laravel framework for back-end development, and Vue.js for front-end development. With Laravel, I gained a deeper understanding of the model-view-controller (MVC) design pattern. The built-in support that Laravel offers, such as routing, sessions, and user authentication, also helped me create the website very quickly. Like React, Vue.js allows me to build an interactive front-end with a component-based architecture. Inertia.js serves as a bridge between Laravel and Vue.js without requiring APIs. It also supports server-side rendering (SSR), which allows SEO optimization for the website. On the website, customers can register, login, and manage their accounts. They can add items to their cart, checkout, and view their orders anytime.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Note that the website is not a real online shop, and no actual purchases can be made. The products and prices displayed are for illustrative purposes only. Some images used on this website may have been sourced from the internet for visual representation. If you believe any content used here infringes upon copyright or contains inappropriate material, kindly contact me so that I can address the concern promptly.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Links
+[Live Website](https://chatflex.yukilun.com)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Technologies
+`PHP` `Laravel` `Inertia.js` `Vue.js` `MongoDB` `Ubuntu VPS` `NGINX` `SCSS` `Bootstrap` `VeeValidate` `Yup` `Maska` `Font Awesome` `AOS` `Swiper` `Stripe`
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Details
+![Image for Dear K.](../../../yuki-portfolio/blob/main/public/images/projects/details/dear-k-labtop-1-front.png)
+![Image for Dear K.](../../../yuki-portfolio/blob/main/public/images/projects/details/dear-k-labtop-1-back.png)
+![Image for Dear K.](../../../yuki-portfolio/blob/main/public/images/projects/details/dear-k-labtop-2-front.png)
+![Image for Dear K.](../../../yuki-portfolio/blob/main/public/images/projects/details/dear-k-labtop-2-back.png)
+![Image for Dear K.](../../../yuki-portfolio/blob/main/public/images/projects/details/dear-k-labtop-3-front.png)
+![Image for Dear K.](../../../yuki-portfolio/blob/main/public/images/projects/details/dear-k-labtop-3-back.png)
