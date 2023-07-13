@@ -11,7 +11,7 @@ Note that the website is not a real online shop, and no actual purchases can be 
 [Live Website](https://chatflex.yukilun.com)
 
 ## Technologies
-`PHP` `Laravel` `Inertia.js` `Vue.js` `MongoDB` `Ubuntu VPS` `NGINX` `SCSS` `Bootstrap` `VeeValidate` `Yup` `Maska` `Font Awesome` `AOS` `Swiper` `Stripe`
+`PHP` `Laravel` `Inertia.js` `Vue.js` `MongoDB` `Ubuntu VPS` `NGINX` `SCSS` `Bootstrap` `VeeValidate` `Yup` `Maska` `Font-Awesome` `AOS` `Swiper` `Stripe`
 
 ## Details
 ![Image for Dear K.](../../../yuki-portfolio/blob/main/public/images/projects/details/dear-k-labtop-1-front.png)
